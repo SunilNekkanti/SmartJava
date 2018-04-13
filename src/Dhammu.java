@@ -78,7 +78,9 @@ public class Dhammu {
 
         //Implement BST using streams
 
+// Implement Linked lists using streams
 
+        //Iterate characters with streams
 
     }
 
