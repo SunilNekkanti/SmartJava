@@ -17,7 +17,7 @@ public class Dhammu {
         String[] mystr = phrase.split(" ");
 //        List<Integer> li = Stream.of(mystr).map(i -> Collections.frequency(Arrays.asList(mystr), i)).collect(Collectors.toList());
 ////        System.out.println(li);
-//        OptionalInt g = Stream.of(mystr).mapToInt(i -> Collections.frequency(Arrays.asList(mystr), i)).max();
+//
 //        System.out.println(g.getAsInt());
         for(String as: mystr)
         {
@@ -27,12 +27,26 @@ public class Dhammu {
         }
 
 
+
+
+
+
+        //Extracting Max Value from map -1
         Integer max = hm.entrySet()
                 .stream()
                 .max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1)
                 .get()
                 .getValue();
-        System.out.println(max);
+
+        //Extracting Max Value from map -2
+        int max2 = Collections.max(hm.values());
+
+        System.out.println(max2);
+
+        //Extracting Max value from array
+        OptionalInt g = Stream.of(mystr).mapToInt(i -> Collections.frequency(Arrays.asList(mystr), i)).max();
+
+
         List listOfMax = hm.entrySet()
                 .stream()
                 .filter(entry -> entry.getValue() == Collections.max(hm.values()))
@@ -41,12 +55,28 @@ public class Dhammu {
 
         System.out.println(listOfMax);
 
+        //Sorting a Map by Key
 
-        //Extracting Max Values
+        //Sorting a Map by Value
+
+        //Sorting a List
+
+        //Sorting an array
+
+
+        //Collector to a Map
+
+        //Collector to a List
+
+        //Collector to an array
+
+
+        //Collector to a Set
 
         //Sorting Map based on keys and values
 
 
+        //Implement BST using streams
 
 
 
