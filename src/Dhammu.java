@@ -266,6 +266,35 @@ int[] intArray = Arrays.stream(arrayo).mapToInt(Integer::intValue).toArray();
 // Implement Linked lists using streams
 
         //Iterate characters with streams
+// def dist(s1, s2):
+//     cur = list(range(len(s2) + 1))
+//     prev = [0] * (len(s2) + 1)
+//     print(cur)
+//     print(prev)
+//     for i in range(len(s1)):
+//         cur, prev = prev, cur
+//         cur[0] = i + 1
+//         for j in range(len(s2)):
+//             # Substitution is same as two deletions
+//             sub = 0 if s1[i] == s2[j] else 2
+//             cur[j+1] = min(prev[j] + sub, cur[j] + 1, prev[j+1] + 1)
+
+//             print("s1[" + str(i) + "]: " + s1[i] + "  s2[" + str(j) + "]: " + s2[j] + "  sub: "+str(sub)+ "  cur["
+//                ""+str(j)+"]: "+ str(cur[j])+ "  cur["+str(j+1)+"]: "+ str(cur[j+1])+"  prev["+str(j)+"]: "+ str(prev[j]) +
+//                   "  prev["+str(j+1)+"]: "+ str(prev[j+1]))
+
+//     print(cur)
+//     print(prev)
+//     return cur[-1]
+
+
+// if __name__ == '__main__':
+//     cases = [('ballroom', 'broom')]
+
+//     for s1, s2 in cases:
+//         print('{} & {} = {}'.format(s1, s2, dist(s1, s2)))
+
+        
 
     }
 
