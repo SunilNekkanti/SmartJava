@@ -8,8 +8,9 @@ class DeletionDistance {
   static int deletionDistance(String str1, String str2) {
 
     char[] ch1 = str1.toCharArray();
+
     char[] ch2 = str2.toCharArray();
-    int deleteDistance = 0;
+
     if (ch1.length == 0 && ch2.length == 0){
         return 0;
     }
@@ -20,25 +21,27 @@ class DeletionDistance {
         return  str1.length();
     }
     int[][] memo = new int[ch1.length+1][ch2.length+1];
-    for(int i = 0; i < ch1.length+1; i++)
-        for(int j = 0; j < ch2.length+1; j++){
+    for(int i = 0; i <= ch1.length; i++)
+        for(int j = 0; j <= ch2.length; j++){
 
-            System.out.println("ch1["+i+"] "+ ch1[i]+" ch2["+j+"] "+ ch2[j]);
-         if(i==0)  {
+            if(i==0 && j ==0 )  {
+                memo[i][j]= 0;
+            }
+         else if(i==0)  {
              memo[i][j]= j;
          }
-         else   if(j==0) {
+         else if(j==0) {
                 memo[i][j]= i;
             }
-            else if( ch1[i] == ch2[j]){
 
-                 memo[i][j] = Math.min(memo[i - 1][j - 1], Math.min(memo[i - 1][j], memo[i][j - 1])) + 1;
+         else if(  ch1[i-1] == ch2[j-1]){
+                System.out.println(ch1[i-1]);
+                 memo[i][j] = memo[i - 1][j - 1];
          }
          else{
-                 memo[i][j] = Math.min(memo[i - 1][j - 1], Math.min(memo[i - 1][j], memo[i][j - 1])) + 2;
+                 memo[i][j] = Math.min(memo[i - 1][j - 1]+2, Math.min(memo[i - 1][j]+1, memo[i][j - 1]+1)) ;
              }
          }
-
 
       Stream.of(memo).map(Arrays::toString).forEach(System.out::println);
       return memo[ch1.length][ch2.length];
@@ -47,8 +50,15 @@ class DeletionDistance {
 
   public static void main(String[] args) {
 
-      System.out.println(deletionDistance( "loop","bloopers"));
+      System.out.println(deletionDistance( "fat","cat"));
 
   }
 
 }
+
+//             b  l  o  o  p  e  r  s
+//         [0, 1, 2, 3, 4, 5, 6, 7, 8]
+//       l [1, 2, 1, 2, 3, 4, 5, 6, 7]
+//       o [2, 3, 2, 1, 2, 3, 4, 5, 6]
+//       o [3, 4, 3, 2, 1, 2, 3, 4, 5]
+//       p [4, 5, 4, 3, 2, 3, 4, 5, 6]
