@@ -1,29 +1,83 @@
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class PlayGround {
 
-    public static void main(String[] p){
+    static int minSum(int[] arr) {
+        int minSum = 1;
 
-        String s1 = "grapo";
-        String s2 = "program";
-        List<Character> s1ch = s1.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
-        List<Character> s2ch = s2.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+        for (int i = 0 ; i < arr.length ; i++) {
+            if( minSum < arr[i]) {
+                return minSum;
+            } else {
+                minSum += arr[i];
+            }
+        }
+        return minSum;
+    }
 
-        Map<Character, Integer> s1map = s1.chars().distinct().mapToObj(i -> (char) i).collect(Collectors.toMap(u->u, m->Collections.frequency(s1ch,m)));
-        Map<Character, Integer> s2map = s2.chars().distinct().mapToObj(i -> (char) i).collect(Collectors.toMap(u->u, m->Collections.frequency(s2ch,m)));
+    public static Integer[] duplicates(int[] sorted1, int[] sorted2) {
+        List<Integer> duplicates = new ArrayList<Integer>();
+        for (int count = 0; count < sorted1.length; count++) {
+            for (int counter = 0; counter < sorted2.length; counter++) {
+                if (sorted1[count] == sorted2[counter]) {
+                    duplicates.add(sorted1[count]);
+                } else if (sorted1[count] < sorted2[counter]) {
+                    break;
+                }
+            }
+        }
+        return duplicates.toArray(new Integer[duplicates.size()]);
 
+    }
 
-        StringBuilder sb = new StringBuilder();
-        for(char cs1: s1.toCharArray()){
+    // pick indices of weights which sum upto the limit
+    static int[] getIndicesOfItemWeights(int[] arr, int limit) {
+        // your code goes here
+        IntStream.Builder result = IntStream.builder();
+        Map<Integer, List<Integer>> complementMap = new HashMap<Integer, List<Integer>>();
+        int complementValue ;
+        int weight ;
+        for(int i=0; i<arr.length; i++) {
+            weight = arr[i];
+            complementValue = limit - weight;
 
-            if(s2map.containsKey(cs1)==true){
-                sb.append(Stream.generate(() ->  String.valueOf(cs1)).limit(s2map.get(cs1)).collect(Collectors.joining()));
+            if (complementMap.containsKey(complementValue)) {
+                complementMap.get(complementValue).add(i);
+            }
+            else {
+               ArrayList<Integer> al = new ArrayList<Integer>();
+               al.add(i);
+                complementMap.put(complementValue, al );
             }
 
+            if(complementMap.containsKey(weight)) {
+                List<Integer> awl = complementMap.get(weight);
+                Collections.reverse(awl);
+                for(int index: awl){
+                    if (i != index){
+                        result.add(i);
+                        result.add(index);
+                        return result.build().toArray();
+                    }
+                }
+            }
         }
+        return result.build().toArray();
+    }
 
-        System.out.println(sb.toString());
+
+    public static void main(String[] p){
+
+
+        int[] sorted1 = {1, 2, 3, 5, 7};
+        int[] sorted2 = {2, 4, 5, 6};
+
+        int[] f = getIndicesOfItemWeights(new int[]{3,2,5,4,6}, 8);
+
+        Arrays.stream(f).forEach(System.out::println);
+
     }
 }
