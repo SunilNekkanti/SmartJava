@@ -7,9 +7,9 @@ public class UniqueLengthSubStrings {
 
     public static void main(String[] args) {
 
-        String mystr = "awagkljihgpoqraestnu";
+        String inputString = "awagkljihgpoqraestnu";
 
-        System.out.println(substringsWithKDistinctCharacters(mystr, 4));
+        System.out.println(substringsWithKDistinctCharacters(inputString, 4));
 
     }
 
@@ -21,12 +21,13 @@ public class UniqueLengthSubStrings {
 
         HashSet<String> sortedsubstrings = new HashSet<String>();
 
-        for (String e : allSubStringList) {
-            if (hasUniqueCharacters(e)) {
 
-                if (!sortedsubstrings.contains(sortStringCharacters(e))) {
-                    sortedsubstrings.add(sortStringCharacters(e));
-                    resultList.add(e);
+        for (String subString : allSubStringList) {
+            if (hasUniqueCharacters(subString)) {
+
+                if (!sortedsubstrings.contains(sortStringCharacters(subString))) {
+                    sortedsubstrings.add(sortStringCharacters(subString));
+                    resultList.add(subString);
                 }
             }
         }

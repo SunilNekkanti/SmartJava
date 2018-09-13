@@ -33,7 +33,7 @@ public class PlayGround {
 
     }
 
-    // pick indices of weights which sum upto the limit
+    // pick indices of  which sum upto the limit
     static int[] getIndicesOfItemWeights(int[] arr, int limit) {
         // your code goes here
         IntStream.Builder result = IntStream.builder();
@@ -64,7 +64,9 @@ public class PlayGround {
                     }
                 }
             }
+
         }
+
         return result.build().toArray();
     }
 
@@ -72,12 +74,21 @@ public class PlayGround {
     public static void main(String[] p){
 
 
-        int[] sorted1 = {1, 2, 3, 5, 7};
-        int[] sorted2 = {2, 4, 5, 6};
+//        int[] sorted1 = {1, 2, 3, 5, 7};
+//        int[] sorted2 = {2, 4, 5, 6};
+//
+//        int[] f = getIndicesOfItemWeights(new int[]{3,2,5,4,5,6}, 8);
+//
+//        System.out.println(Arrays.toString(f));
 
-        int[] f = getIndicesOfItemWeights(new int[]{3,2,5,4,6}, 8);
 
-        Arrays.stream(f).forEach(System.out::println);
+        String str1 = "hello how are you ra";
+
+
+        String s2 = "how";
+
+
+        System.out.println(str1.indexOf(s2));
 
     }
 }

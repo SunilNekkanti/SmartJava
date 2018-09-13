@@ -35,7 +35,7 @@ class DeletionDistance {
             }
 
          else if(  ch1[i-1] == ch2[j-1]){
-                System.out.println(ch1[i-1]);
+
                  memo[i][j] = memo[i - 1][j - 1];
          }
          else{
