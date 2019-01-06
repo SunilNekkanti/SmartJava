@@ -54,16 +54,17 @@ public class TruckDelivery {
             }
         }
 
-        backTrackPath(destNode, startNode, parentChildSet, area);
+        return backTrackPath(destNode, startNode, parentChildSet, area);
 
-        return -1;
+
 
 
     }
 
-    public static String backTrackPath(String destNode, String startNode, Set<Pair<String, String>> parentChildSet, List<List<Integer>> area){
+    public static int  backTrackPath(String destNode, String startNode, Set<Pair<String, String>> parentChildSet, List<List<Integer>> area){
 
             boolean pathMapped = false;
+            int minDistance = 0;
             StringBuilder sb = new StringBuilder(destNode);
             StringBuilder datasb = new StringBuilder(String.valueOf(getData(destNode,area)));
             String parent = "";
@@ -77,11 +78,13 @@ public class TruckDelivery {
                     pathMapped=true;
                 }
                 endNode = parent;
+                minDistance++;
 
             }
         System.out.println(sb.toString());
         System.out.println(datasb.toString());
-          return sb.toString();
+        System.out.println(minDistance);
+        return minDistance;
     }
 
     private static String getParent(Set<Pair<String, String>> parentChildSet,String node){
