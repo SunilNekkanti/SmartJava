@@ -1,7 +1,5 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class ComparatorOldWay {
   static List<Employee> employeeList = 
@@ -14,12 +12,12 @@ public class ComparatorOldWay {
  
   public static void main(String args[]) {
 
-    Comparator<Employee> agewise = (Employee e1, Employee e2) -> {
+    String f = "omuddupettavejigeluraani";
+    char[] op = f.toCharArray();
 
-      return e1.getAge().compareTo(e2.getAge());
-    };
+      f.chars()
+              .mapToObj(i-> (char) i)
+              .forEach(System.out::println);
 
-    Collections.sort(employeeList,  Comparator.comparing(Employee::getAge));
-    employeeList.forEach(System.out::println);
   }
 }
