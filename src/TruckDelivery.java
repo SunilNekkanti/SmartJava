@@ -10,8 +10,8 @@ public class TruckDelivery {
     public static void main(String[] args) {
         List<List<Integer>> list = new ArrayList<List<Integer>>();
         list.add(Arrays.asList(1,1,1));
-        list.add(Arrays.asList(0,0,1));
-        list.add(Arrays.asList(1,9,1));
+        list.add(Arrays.asList(0,9,1));
+        list.add(Arrays.asList(1,1,1));
         minimumDistance(3,3, list);
     }
 

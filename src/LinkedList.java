@@ -1,4 +1,4 @@
-public class LinkedList{
+public class LinkedList<S> {
  
 	private Node head;
  
@@ -57,7 +57,7 @@ public class LinkedList{
 	}
  
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		LinkedList<Node> list = new LinkedList<Node>();
 		// Creating a linked list
 		Node head=new Node(0);
 		list.addToTheLast(head);

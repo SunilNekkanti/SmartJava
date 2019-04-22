@@ -1,0 +1,507 @@
+Collection is a group of objects, which are known as elements. It is the root interface in the collection hierarchy. This interface is basically used to pass around the collections and manipulate them where the maximum generality is desired.
+
+There are many methods defined in the Collection interface. These are as follows:
+
+Method	Description
+add()	This method returns a Boolean value true if it inserts the specified element in this collection.
+addAll()	This method returns a Boolean value true if it adds all the elements of specified collection in the invoking collection.
+clear()	It removes all the elements automatically from this collection.
+contains()	It returns a Boolean value true if this queue contains the specified element.
+containsAll()	It returns a Boolean value true if this collection contains all the elements in the specified collection.
+equals()	This method returns a boolean value true if the specified object is equal with this collection.
+hashCode()	It returns a hash code value for this collection.
+isEmpty()	This method returns true if this collection contains no elements or is empty.
+iterator()	It returns an iterator over the elements in proper sequence.
+remove()	It removes the specified element from this queue, if it is present in the collection.
+removeAll()	It removes all the elements of this collection which are also present in the specified collection.
+removeIf()	It removes all the elements of this collection that satisfy the given predicate filter.
+retainAll()	This method retains only those elements in this collection that are present in the specified collection.
+size()	It returns the total number of the elements in this collection.
+spliterator()	It returns a spliterator over the elements in this collection.
+toArray()	It returns an array containing all the elements of this collection which are in proper sequence.
+
+
+Methods in Stack class
+Object push(Object element) : Pushes an element on the top of the stack.
+Object pop() : Removes and returns the top element of the stack. An ‘EmptyStackException’ exception is thrown if we call pop() when the invoking stack is empty.
+Object peek() : Returns the element on the top of the stack, but does not remove it.
+boolean empty() : It returns true if nothing is on the top of the stack. Else, returns false.
+int search(Object element) : It determines whether an object exists in the stack. If the element is found, it returns the position of the element from the top of the stack. Else, it returns -1.
+
+
+Java Vector Class Methods
+1)	add()	It is used to append the specified element in the given vector.
+2)	addAll()	It is used to append all of the elements in the specified collection to the end of this Vector.
+3)	addElement()	It is used to append the specified component to the end of this vector. It increases the vector size by one.
+4)	capacity()	It is used to get the current capacity of this vector.
+5)	clear()	It is used to delete all of the elements from this vector.
+6)	clone()	It returns a clone of this vector.
+7)	contains()	It returns true if the vector contains the specified element.
+8)	containsAll()	It returns true if the vector contains all of the elements in the specified collection.
+9)	copyInto()	It is used to copy the components of the vector into the specified array.
+10)	elementAt()	It is used to get the component at the specified index.
+11)	elements()	It returns an enumeration of the components of a vector.
+12)	ensureCapacity()	It is used to increase the capacity of the vector which is in use, if necessary. It ensures that the vector can hold at least the number of components specified by the minimum capacity argument.
+13)	equals()	It is used to compare the specified object with the vector for equality.
+14)	firstElement()	It is used to get the first component of the vector.
+15)	forEach()	It is used to perform the given action for each element of the Iterable until all elements have been processed or the action throws an exception.
+16)	get()	It is used to get an element at the specified position in the vector.
+17)	hashCode()	It is used to get the hash code value of a vector.
+18)	indexOf()	It is used to get the index of the first occurrence of the specified element in the vector. It returns -1 if the vector does not contain the element.
+19)	insertElementAt()	It is used to insert the specified object as a component in the given vector at the specified index.
+20)	isEmpty()	It is used to check if this vector has no components.
+21)	iterator()	It is used to get an iterator over the elements in the list in proper sequence.
+22)	lastElement()	It is used to get the last component of the vector.
+23)	lastIndexOf()	It is used to get the index of the last occurrence of the specified element in the vector. It returns -1 if the vector does not contain the element.
+24)	listIterator()	It is used to get a list iterator over the elements in the list in proper sequence.
+25)	remove()	It is used to remove the specified element from the vector. If the vector does not contain the element, it is unchanged.
+26)	removeAll()	It is used to delete all the elements from the vector that are present in the specified collection.
+27)	removeAllElements()	It is used to remove all elements from the vector and set the size of the vector to zero.
+28)	removeElement()	It is used to remove the first (lowest-indexed) occurrence of the argument from the vector.
+29)	removeElementAt()	It is used to delete the component at the specified index.
+30)	removeIf()	It is used to remove all of the elements of the collection that satisfy the given predicate.
+31)	removeRange()	It is used to delete all of the elements from the vector whose index is between fromIndex, inclusive and toIndex, exclusive.
+32)	replaceAll()	It is used to replace each element of the list with the result of applying the operator to that element.
+33)	retainAll()	It is used to retain only that element in the vector which is contained in the specified collection.
+34)	set()	It is used to replace the element at the specified position in the vector with the specified element.
+35)	setElementAt()	It is used to set the component at the specified index of the vector to the specified object.
+36)	setSize()	It is used to set the size of the given vector.
+37)	size()	It is used to get the number of components in the given vector.
+38)	sort()	It is used to sort the list according to the order induced by the specified Comparator.
+39)	spliterator()	It is used to create a late-binding and fail-fast Spliterator over the elements in the list.
+40)	subList()	It is used to get a view of the portion of the list between fromIndex, inclusive, and toIndex, exclusive.
+41)	toArray()	It is used to get an array containing all of the elements in this vector in correct order.
+42)	toString()	It is used to get a string representation of the vector.
+43)	trimToSize()	It is used to trim the capacity of the vector to the vector's current size.
+
+
+Methods in Java ArrayList:
+forEach​(Consumer action): Performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception.
+retainAll​(Collection c): Retains only the elements in this list that are contained in the specified collection.
+removeIf​(Predicate filter): Removes all of the elements of this collection that satisfy the given predicate.
+contains​(Object o): Returns true if this list contains the specified element.
+remove​(int index): Removes the element at the specified position in this list.
+remove​(Object o): Removes the first occurrence of the specified element from this list, if it is present.
+get​(int index): Returns the element at the specified position in this list.
+subList​(int fromIndex, int toIndex): Returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive.
+spliterator​(): Creates a late-binding and fail-fast Spliterator over the elements in this list.
+set​(int index, E element): Replaces the element at the specified position in this list with the specified element.
+size​(): Returns the number of elements in this list.
+removeAll​(Collection c): Removes from this list all of its elements that are contained in the specified collection.
+ensureCapacity​(int minCapacity): Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
+listIterator​(): Returns a list iterator over the elements in this list (in proper sequence).
+listIterator​(int index): Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list.
+isEmpty​(): Returns true if this list contains no elements.
+removeRange​(int fromIndex, int toIndex): Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
+void clear(): This method is used to remove all the elements from any list.
+void add(int index, Object element): This method is used to insert a specific element at a specific position index in a list.
+void trimToSize(): This method is used to trim the capacity of the instance of the ArrayLis to the list’s current size.
+int indexOf(Object O): The
+index the first occurrence of a specific element is either returned, or -1 in case the element is not in the list.
+int lastIndexOf(Object O): The index the last occurrence of a specific element is either returned, or -1 in case the element is not in the list.
+Object clone(): This method is used to return a shallow copy of an ArrayList.
+Object[] toArray(): This method is used to return an array containing all of the elements in the list in correct order.
+Object[] toArray(Object[] O): It is also used to return an array containing all of the elements in this list in the correct order same as the previous method.
+boolean addAll(Collection C): This method is used to append all the elements from a specific collection to the end of the mentioned list, in such a order that the values are returned by the specified collection’s iterator.
+boolean add(Object o): This method is used to append a specificd element to the end of a list.
+boolean addAll(int index, Collection C): Used to insert all of the elements starting at the specified position from a specific collection into the mentioned list.
+
+
+Methods for Java LinkedList:
+add​(int index, E element): This method Inserts the specified element at the specified position in this list.
+add​(E e): This method Appends the specified element to the end of this list.
+addAll​(int index, Collection c): This method Inserts all of the elements in the specified collection into this list, starting at the specified position.
+addAll​(Collection c): This method Appends all of the elements in the specified collection to the end of this list, in the order that they are returned by the specified collection’s iterator.
+addFirst​(E e): This method Inserts the specified element at the beginning of this list.
+addLast​(E e): This method Appends the specified element to the end of this list.
+clear​(): This method removes all of the elements from this list.
+clone​(): This method returns a shallow copy of this LinkedList.
+contains​(Object o): This method returns true if this list contains the specified element.
+descendingIterator​(): This method returns an iterator over the elements in this deque in reverse sequential order.
+element​(): This method retrieves, but does not remove, the head (first element) of this list.
+get​(int index): This method returns the element at the specified position in this list.
+getFirst​(): This method returns the first element in this list.
+getLast​(): This method returns the last element in this list.
+indexOf​(Object o): This method returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+lastIndexOf​(Object o): This method returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+listIterator​(int index): This method returns a list-iterator of the elements in this list (in proper sequence), starting at the specified position in the list.
+offer​(E e): This method Adds the specified element as the tail (last element) of this list.
+offerFirst​(E e): This method Inserts the specified element at the front of this list.
+offerLast​(E e): This method Inserts the specified element at the end of this list.
+peek​(): This method retrieves, but does not remove, the head (first element) of this list.
+peekFirst​(): This method retrieves, but does not remove, the first element of this list, or returns null if this list is empty.
+peekLast​(): This method retrieves, but does not remove, the last element of this list, or returns null if this list is empty.
+poll​(): This method retrieves and removes the head (first element) of this list.
+pollFirst​(): This method retrieves and removes the first element of this list, or returns null if this list is empty.
+pollLast​(): This method retrieves and removes the last element of this list, or returns null if this list is empty.
+pop​(): This method Pops an element from the stack represented by this list.
+push​(E e): This method Pushes an element onto the stack represented by this list.
+remove​(): This method retrieves and removes the head (first element) of this list.
+remove​(int index): This method removes the element at the specified position in this list.
+remove​(Object o): This method removes the first occurrence of the specified element from this list, if it is present.
+removeFirst​(): This method removes and returns the first element from this list.
+removeFirstOccurrence​(Object o): This method removes the first occurrence of the specified element in this list (when traversing the list from head to tail).
+removeLast​(): This method removes and returns the last element from this list.
+removeLastOccurrence​(Object o): This method removes the last occurrence of the specified element in this list (when traversing the list from head to tail).
+set​(int index, E element): This method replaces the element at the specified position in this list with the specified element.
+size​(): This method returns the number of elements in this list.
+spliterator​(): This method Creates a late-binding and fail-fast Spliterator over the elements in this list.
+toArray​(): This method returns an array containing all of the elements in this list in proper sequence (from first to last element).
+toArray​(T[] a): This method returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
+
+
+Methods in HashMap
+void clear(): Used to remove all mappings from a map.
+boolean containsKey(Object key): Used to return True if for a specified key, mapping is present in the map.
+boolean containsValue(Object value): Used to return true if one or more key is mapped to a specified value.
+Object clone(): It is used to return a shallow copy of the mentioned hash map.
+boolean isEmpty(): Used to check whether the map is empty or not. Returns true if the map is empty.
+Set entrySet(): It is used to return a set view of the hash map.
+Object get(Object key): It is used to retrieve or fetch the value mapped by a particular key.
+Set keySet(): It is used to return a set view of the keys.
+int size(): It is used to return the size of a map.
+Object put(Object key, Object value): It is used to insert a particular mapping of key-value pair into a map.
+putAll(Map M): It is used to copy all of the elements from one map into another.
+Object remove(Object key): It is used to remove the values for any particular key in the Map.
+Collection values(): It is used to return a Collection view of the values in the HashMap.
+
+TreeMap in Java
+Constructors in TreeMap:
+TreeMap() : Constructs an empty tree map that will be sorted by using the natural order of its keys.
+TreeMap(Comparator comp) : Constructs an empty tree-based map that will be sorted by using the Comparator comp.
+TreeMap(Map m) : Initializes a tree map with the entries from m, which will be sorted by using the natural order of the keys.
+TreeMap(SortedMap sm) : Initializes a tree map with the entries from sm, which will be sorted in the same order as sm.
+
+Methods of TreeMap:
+boolean containsKey(Object key): Returns true if this map contains a mapping for the specified key.
+boolean containsValue(Object value): Returns true if this map maps one or more keys to the specified value.
+Object firstKey(): Returns the first (lowest) key currently in this sorted map.
+Object get(Object key): Returns the value to which this map maps the specified key.
+Object lastKey(): Returns the last (highest) key currently in this sorted map.
+Object remove(Object key): Removes the mapping for this key from this TreeMap if present.
+void putAll(Map map): Copies all of the mappings from the specified map to this map.
+Set entrySet(): Returns a set view of the mappings contained in this map.
+int size(): Returns the number of key-value mappings in this map.
+Collection values(): Returns a collection view of the values contained in this map.
+Object clone(): The method returns a shallow copy of this TreeMap.
+void clear(): The method removes all mappings from this TreeMap and clears the map.
+SortedMap headMap(Object key_value): The method returns a view of the portion of the map strictly less than the parameter key_value.
+Set keySet(): The method returns a Set view of the keys contained in the treemap.
+Object put(Object key, Object value): The method is used to insert a mapping into a map
+SortedMap subMap((K startKey, K endKey): The method returns the portion of this map whose keys range from startKey, inclusive, to endKey, exclusive.
+Object firstKey(): The method returns the first key currently in this tree map.
+
+
+Constructors in LinkedHashMap:
+LinkedHashMap(): This is used to construct a default LinkedHashMap constuctor.
+LinkedHashMap(int capacity): It is used to initialize a particular LinkedHashMap with a specified capacity.
+LinkedHashMap(Map m_a_p): It is used to initialize a particular LinkedHashMap with the elements of the specified map.
+LinkedHashMap(int capacity, float fillRatio): It is used to initialize both the capacity and fill ratio for a LinkedHashMap.
+LinkedHashMap(int capacity, float fillRatio, boolean Order): This constructor is also used to initialize both the capacity and fill ratio for a LinkedHashMap along with whether to follow the insertion order or not.
+True is passed for last access order.
+False is passed for insertion order.
+
+Methods in LinkedHashMap:
+void clear(): This method is used to remove all the mappings from the map.
+boolean containsKey(Object key): This method is used to returns true if a specified element is mapped by one or more keys.
+Object get(Object key): The method is used to retrieve or fetch the value mapped by the specified key.
+protected boolean removeEldestEntry(Map.Entry eldest): The method is used to return true when the map removes its eldest entry from the map.
+entrySet​(): This method returns a Set view of the mappings contained in this map.
+forEach​(BiConsumer<K,V> action): This method Performs the given action for each entry in this map until all entries have been processed or the action throws an exception.
+getOrDefault​(Object key, V defaultValue): This method returns the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key.
+keySet​(): This method returns a Set view of the keys contained in this map.
+removeEldestEntry​(Map.Entry<K,V> eldest): This method returns true if this map should remove its eldest entry.
+replaceAll​(BiFunction<K,V> function): This method replaces each entry’s value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception.
+values​(): This method returns a Collection view of the values contained in this map.
+
+
+Constructors for PriorityQueue class:
+PriorityQueue(): Creates a PriorityQueue with the default initial capacity (11) that orders its elements according to their natural ordering.
+PriorityQueue(Collection c): Creates a PriorityQueue containing the elements in the specified collection.
+PriorityQueue(int initialCapacity): Creates a PriorityQueue with the specified initial capacity that orders its elements according to their natural ordering.
+PriorityQueue(int initialCapacity, Comparator comparator): Creates a PriorityQueue with the specified initial capacity that orders its elements according to the specified comparator.
+PriorityQueue(PriorityQueue c): Creates a PriorityQueue containing the elements in the specified priority queue.
+PriorityQueue(SortedSet c): Creates a PriorityQueue containing the elements in the specified sorted set.
+
+Methods in PriorityQueue class:
+boolean add(E element): This method inserts the specified element into this priority queue.
+public remove(): This method removes a single instance of the specified element from this queue, if it is present
+public poll(): This method retrieves and removes the head of this queue, or returns null if this queue is empty.
+public peek(): This method retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+Iterator iterator(): Returns an iterator over the elements in this queue.
+boolean contains(Object o): This method returns true if this queue contains the specified element
+void clear(): This method is used to remove all of the contents of the priority queue.
+boolean offer(E e): This method is used to insert a specific element into the priority queue.
+int size(): The method is used to return the number of elements present in the set.
+toArray(): This method is used to return an array containing all of the elements in this queue.
+Comparator comparator(): The method is used to return the comparator that can be used to order the elements of the queue.
+
+ArrayDeque in Java
+Constructors for ArrayDeque:
+ArrayDeque(): Used to create an empty ArrayDeque and by default holds an initial capacity to hold 16 elements.
+ArrayDeque(Collection c): Used to create an ArrayDeque containing all the elements same as that of the specified collection.
+ArrayDeque(int numofElements): Used to create an empty ArrayDeque wand holds the capacity to contain a specified number of elements.
+
+Methods in ArrayDeque:
+add(Element e) : The method inserts particular element at the end of the deque.
+addFirst(Element e) : The method inserts particular element at the start of the deque.
+addLast(Element e) : The method inserts particular element at the end of the deque. It is similiar to add() method
+clear() : The method removes all deque elements.
+size() : The method returns the no. of elements in deque.
+clone() : The method copies the deque.
+contains(Obj) : The method checks whether a deque contains the element or not
+Iterator() : The method returns an iterator over the deque.
+descendingIterator() : The method returns a reverse order iterator over the deque
+element() : The method returns element at the head of the deque
+getFirst(): The method returns first element of the deque
+getLast(): The method returns last element of the deque
+isEmpty(): The method checks whether the deque is empty or not.
+toArray(): The method returns array having the elements of deque.
+offer(Element e) : The method inserts element at the end of deque.
+offerFirst(Element e) : The method inserts element at the front of deque.
+offerLast(Element e) : The method inserts element at the end of deque.
+peek() : The method returns head element without removing it.
+peekFirst() : The method returns first element without removing it.
+peekLast() : The method returns last element without removing it.
+poll() : The method returns head element and also removes it
+pollFirst() : The method returns first element and also removes it
+pollLast() : The method returns last element and also removes it
+pop() : The method pops out an element for stack repesented by deque
+push(Element e) : The method pushes an element onto stack repesented by deque
+remove() : The method returns head element and also removes it
+removeFirst() : The method returns first element and also removes it
+removeLast() : The method returns last element and also removes it
+removeFirstOccurrence(Obj) : The method removes the element where it first occur in the deque.
+removeLastOccurrence(Obj) : The method removes the element where it last occur in the deque.
+
+
+
+Constructors of TreeSet class:
+TreeSet t = new TreeSet();
+This will create empty TreeSet object in which elements will get stored in default natural sorting order.
+TreeSet t = new TreeSet(Comparator comp);
+This constructor is used when external specification of sorting order of elements is needed.
+TreeSet t = new TreeSet(Collection col); 
+This constructor is used when any conversion is needed from any Collection object to TreeSet object.
+TreeSet t = new TreeSet(SortedSet s);
+This constructor is used to convert SortedSet object to TreeSet Object.
+
+Methods of TreeSet class:
+TreeSet implements SortedSet so it has availability of all methods in Collection, Set and SortedSet interfaces. Following are the methods in Treeset interface.
+void add(Object o): This method will add specified element according to some sorting order in TreeSet. Duplicate entires will not get added.
+boolean addAll(Collection c): This method will add all elements of specified Collection to the set. Elements in Collection should be homogeneous otherwise ClassCastException will be thrown. Duplicate Entries of Collection will not be added to TreeSet.
+void clear(): This method will remove all the elements.
+boolean contains(Object o): This method will return true if given element is present in TreeSet else it will return false.
+Object first(): This method will return first element in TreeSet if TreeSet is not null else it will throw NoSuchElementException.
+Object last(): This method will return last element in TreeSet if TreeSet is not null else it will throw NoSuchElementException.
+SortedSet headSet(Object toElement): This method will return elements of TreeSet which are less than the specified element.
+SortedSet tailSet(Object fromElement): This method will return elements of TreeSet which are greater than or equal to the specified element.
+SortedSet subSet(Object fromElement, Object toElement): This method will return elements ranging from fromElement to toElement. fromElement is inclusive and toElement is exclusive.
+boolean isEmpty(): This method is used to return true if this set contains no elements or is empty and false for the opposite case.
+Object clone(): The method is used to return a shallow copy of the set, which is just a simple copied set.
+int size(): This method is used to return the size of the set or the number of elements present in the set.
+boolean remove(Object o): This method is used to return a specific element from the set.
+Iterator iterator(): Returns an iterator for iterating over the elements of the set.
+Comparator comparator(): This method will return Comparator used to sort elements in TreeSet or it will return null if default natural sorting order is used.
+ceiling​(E e): This method returns the least element in this set greater than or equal to the given element, or null if there is no such element.
+descendingIterator​(): This method returns an iterator over the elements in this set in descending order.
+descendingSet​(): This method returns a reverse order view of the elements contained in this set.
+floor​(E e): This method returns the greatest element in this set less than or equal to the given element, or null if there is no such element.
+higher​(E e): This method returns the least element in this set strictly greater than the given element, or null if there is no such element.
+lower​(E e): This method returns the greatest element in this set strictly less than the given element, or null if there is no such element.
+pollFirst​(): This method retrieves and removes the first (lowest) element, or returns null if this set is empty.
+pollLast​(): This method retrieves and removes the last (highest) element, or returns null if this set is empty.
+spliterator​(): This method creates a late-binding and fail-fast Spliterator over the elements in this set.
+
+Methods in HashSet:
+boolean add(E e): Used to add the specified element if it is not present, if it is present then return false.
+void clear(): Used to remove all the elements from set.
+boolean contains(Object o): Used to return true if an element is present in set.
+boolean remove(Object o): Used to remove the element if it is present in set.
+Iterator iterator(): Used to return an iterator over the element in the set.
+boolean isEmpty(): Used to check whether the set is empty or not. Returns true for empty and false for non-empty condition for set.
+int size(): Used to return the size of the set.
+Object clone(): Used to create a shallow copy of the set.
+
+Methods in LinkedHashSet:
+spliterator​(): This method creates a late-binding and fail-fast Spliterator over the elements in this set.
+clear​(): This method removes all of the elements from this set.
+contains​(Object o): This method returns true if this set contains the specified element.
+
+
+BlockingQueue Interface in Java
+A thread trying to enqueue an element in a full queue is blocked until some other thread makes space in the queue, either by dequeuing one or more element or clearing the queue completely. Similarly it blocks a thread trying to delete from an empty queue until some other treads inserts an item. BlockingQueue does not accept null value. If we try to enqueue null item, then it throws NullPointerException.
+
+Java provides several BlockingQueue implementations such as LinkedBlockingQueue, ArrayBlockingQueue, PriorityBlockingQueue, SynchronousQueue etc. Java BlockingQueue interface implementations are thread-safe. All methods of BlockingQueue are atomic in nature and use internal locks or other forms of concurrency control. Java 5 comes with BlockingQueue implementations in the java.util.concurrent package.
+
+BlockingQueue Types
+The BlockingQueue are two types-
+
+Unbounded Queue: The Capacity of blocking queue will be set to Integer.MAX_VALUE. In case of unbounded blocking queue, queue will never block because it could grow to a very large size. when you add elements it’s size grow.
+
+Bounded Queue: The second type of queue is the bounded queue. In case of bounded queue you can create a queue by passing the capacity of queue in queues constructor:
+
+MODIFIER AND TYPE	METHOD SYNTAX	USED FOR	DESCRIPTION
+
+boolean	add(E e)	Insertion	Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions, returning true upon success and throwing an IllegalStateException if no space is currently available.
+boolean	contains(Object o)	Examine	Returns true if this queue contains the specified element.
+int	drainTo(Collection c)	Retrieving or Removal	Removes all available elements from this queue and adds them to the given collection.
+int	drainTo(Collection c, int maxElements)	Retrieving or Removal	Removes at most the given number of available elements from this queue and adds them to the given collection.
+boolean	offer(E e)	Insertion	Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions, returning true upon success and false if no space is currently available.
+boolean	offer(E e, long timeout, TimeUnit unit)	Insertion	Inserts the specified element into this queue, waiting up to the specified wait time if necessary for space to become available.
+E	poll(long timeout, TimeUnit unit)	Retrieving or Removal	Retrieves and removes the head of this queue, waiting up to the specified wait time if necessary for an element to become available.
+void	put(E e)	Insertion	Inserts the specified element into this queue, waiting if necessary for space to become available.
+int	remainingCapacity()	Examine	Returns the number of additional elements that this queue can ideally (in the absence of memory or resource constraints) accept without blocking, or Integer.MAX_VALUE if there is no intrinsic limit.
+boolean	remove(Object o)+	Retrieving or Removal	Removes a single instance of the specified element from this queue, if it is present.
+E	take()	Retrieving or Removal	Retrieves and removes the head of this queue, waiting if necessary until an element becomes available.
+
+
+
+LinkedBlockingDeque in Java with Examples
+The LinkedBlockingDeque class in Java is a part of the Java Collection Framework and implements the Collection interface and the AbstractQueue class. It also implements the BlockingDeque and provides an optionally-bounded functionality based on linked nodes. This optional boundedness is served by passing the required size in the constructor and helps in preventing memory wastage. When unspecified, the capacity is by default taken as Integer.MAX_VALUE.
+
+Constructors in Java LinkedBlockingDeque:
+
+LinkedBlockingDeque(): This constructor is used to construct an empty deque. In this case the capacity is set to Integer.MAX_VALUE
+LinkedBlockingDeque(int capacity): This constructor creates a LinkedBlockingDeque with the given (fixed) capacity.
+LinkedBlockingDeque(Collection<E> c): This constructor is used to construct a deque with the elements of the Collection passed as the parameter.
+
+Methods in Java LinkedBlockingDeque:
+
+add(E e): This method inserts the specified element at the end of this deque unless it would violate capacity restrictions.
+addAll(Collection<E> c): This method appends all of the elements in the specified collection to the end of this deque, in the order that they are returned by the specified collection’s iterator.
+addFirst(E e): This method inserts the specified element at the front of this deque if it is possible to do so immediately without violating capacity restrictions, throwing an IllegalStateException if no space is currently available.
+addLast(E e): This method inserts the specified element at the end of this deque if it is possible to do so immediately without violating capacity restrictions, throwing an IllegalStateException if no space is currently available.
+clear(): This method atomically removes all of the elements from this deque.
+contains(Object o): This method returns true if this deque contains the specified element.
+descendingIterator(): This method returns an iterator over the elements in this deque in reverse sequential order.
+drainTo(Collection<E> c): This method removes all available elements from this queue and adds them to the given collection.
+drainTo(Collection<E> c, int maxElements): This method removes at most the given number of available elements from this queue and adds them to the given collection.
+element(): This method retrieves, but does not remove, the head of the queue represented by this deque.
+forEach(Consumer<E> action): This method performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception.
+getFirst(): This method retrieves, but does not remove, the first element of this deque.
+getLast(): This method retrieves, but does not remove, the last element of this deque.
+iterator(): This method returns an iterator over the elements in this deque in proper sequence.
+offer(E e): This method inserts the specified element into the queue represented by this deque (in other words, at the tail of this deque) if it is possible to do so immediately without violating capacity restrictions, returning true upon success and false if no space is currently available.
+offer(E e, long timeout, TimeUnit unit): This method inserts the specified element into the queue represented by this deque (in other words, at the tail of this deque), waiting up to the specified wait time if necessary for space to become available.
+offerFirst(E e): This method inserts the specified element at the front of this deque if it is possible to do so immediately without violating capacity restrictions, returning true upon success and false if no space is currently available.
+offerFirst(E e, long timeout, TimeUnit unit): This method inserts the specified element at the front of this deque, waiting up to the specified wait time if necessary for space to become available.
+offerLast(E e): This method inserts the specified element at the end of this deque if it is possible to do so immediately without violating capacity restrictions, returning true upon success and false if no space is currently available.
+offerLast(E e, long timeout, TimeUnit unit): This method inserts the specified element at the end of this deque, waiting up to the specified wait time if necessary for space to become available.
+peek(): This method retrieves, but does not remove, the head of the queue represented by this deque (in other words, the first element of this deque), or returns null if this deque is empty.
+peekFirst(): This method retrieves, but does not remove, the first element of this deque, or returns null if this deque is empty.
+peekLast(): This method retrieves, but does not remove, the last element of this deque, or returns null if this deque is empty.
+poll(): This method retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque), or returns null if this deque is empty.
+poll(long timeout, TimeUnit unit): This method retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque), waiting up to the specified wait time if necessary for an element to become available.
+pollFirst(): This method retrieves and removes the first element of this deque, or returns null if this deque is empty.
+pollFirst(long timeout, TimeUnit unit): This method retrieves and removes the first element of this deque, waiting up to the specified wait time if necessary for an element to become available.
+pollLast(): This method retrieves and removes the last element of this deque, or returns null if this deque is empty.
+pollLast(long timeout, TimeUnit unit): This method retrieves and removes the last element of this deque, waiting up to the specified wait time if necessary for an element to become available.
+pop(): This method pops an element from the stack represented by this deque.
+push(E e): This method pushes an element onto the stack represented by this deque (in other words, at the head of this deque) if it is possible to do so immediately without violating capacity restrictions, throwing an IllegalStateException if no space is currently available.
+put(E e): This method inserts the specified element into the queue represented by this deque (in other words, at the tail of this deque), waiting if necessary for space to become available.
+putFirst(E e): This method inserts the specified element at the front of this deque, waiting if necessary for space to become available.
+putLast(E e): This method inserts the specified element at the end of this deque, waiting if necessary for space to become available.
+remainingCapacity(): This method returns the number of additional elements that this deque can ideally (in the absence of memory or resource constraints) accept without blocking.
+remove(): This method retrieves and removes the head of the queue represented by this deque.
+remove(Object o): This method removes the first occurrence of the specified element from this deque.
+removeAll(Collection<E> c): This method removes all of this collection’s elements that are also contained in the specified collection (optional operation).
+removeFirst(): This method retrieves and removes the first element of this deque.
+removeFirstOccurrence(Object o): This method removes the first occurrence of the specified element from this deque.
+removeIf(Predicate<E> filter): This method removes all of the elements of this collection that satisfy the given predicate.
+removeLast(): This method retrieves and removes the last element of this deque.
+removeLastOccurrence(Object o): This method removes the last occurrence of the specified element from this deque.
+retainAll(Collection<E> c): This method retains only the elements in this collection that are contained in the specified collection (optional operation).
+size(): This method returns the number of elements in this deque.
+spliterator(): This method returns a Spliterator over the elements in this deque.
+take(): This method retrieves and removes the head of the queue represented by this deque (in other words, the first element of this deque), waiting if necessary until an element becomes available.
+takeFirst(): This method retrieves and removes the first element of this deque, waiting if necessary until an element becomes available.
+takeLast(): This method retrieves and removes the last element of this deque, waiting if necessary until an element becomes available.
+toArray(): This method returns an array containing all of the elements in this deque, in proper sequence (from first to last element).
+toArray(T[] a): This method returns an array containing all of the elements in this deque, in proper sequence; the runtime type of the returned array is that of the specified array.
+toString(): This method returns a string representation of this collection.
+
+
+COMPARATOR STYLES
+//Old style
+public class EmployeeComparator implements Comparator<Employee> {
+  @Override
+  public int compare(Employee emp1, Employee emp2) {
+    return (emp1.getName().compareTo(emp2.getName()));
+  }
+}
+    Collections.sort(employeeList, new EmployeeComparator());
+    employeeList.forEach(System.out::println);
+
+//New style
+//Using Lambdas
+    Comparator<Employee> empNameComparator = (Employee emp1, Employee emp2) -> {return (emp1.getName().compareTo(emp2.getName()));};
+    Collections.sort(employeeList, empNameComparator);
+    employeeList.forEach(System.out::println);
+
+//Using static method comparing() or method reference
+     Comparator<Employee> comparatorObj=Comparator.comparing(Employee emp -> emp.getName());
+     Collections.sort(employeeList, comparatorObj);
+     employeeList.forEach(System.out::println);	 
+	  OR 
+      Comparator<Employee> comparatorObj=Comparator.comparing(Employee::getName);
+      Collections.sort(employeeList, comparatorObj);
+      employeeList.forEach(System.out::println);
+	  
+// Multiple sort order, The second level sort order gets used if the first level sort criteria is indecisive.
+      Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName).thenComparing(Employee::getAge);
+      Collections.sort(employeeList, empNameComparator);
+      employeeList.forEach(System.out::println);
+//Invert the order of sorting
+        Comparator<String> mycmp = Comparator.comparing( s -> new Character(s.charAt(1)), Comparator.reverseOrder()); // pass Comparator.reverseOrder() as the second argument
+        List<String> fg = li.stream().sorted(mycmp).collect(Collectors.toList());
+	  
+	  
+
+SORTING
+
+Sorting an ArrayList
+//Ascending
+Collections.sort(myarrayList); //with Collections class
+OR
+myarrayList.sort(Comparator.naturalOrder()); //with Comparator natural order
+OR
+list.sort((o1, o2) -> o1.getItem().getValue().compareTo(o2.getItem().getValue()));   //Using Lambda 
+OR
+list.sort(Comparator.comparing(o -> o.getItem().getValue())); 
+OR
+list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());   //Using stream.sorted returns a new list
+
+//Descending
+Comparator mycomparator = Collections.reverseOrder();
+Collections.sort(myarrayList,mycomparator); //with Comparator reverse order
+OR
+myarrayList.sort(Comparator.reverseOrder());
+OR
+Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName).reversed();
+Collections.sort(employeeList, empNameComparator);
+OR
+li.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());   //Using stream.sorted returns a new list
+OR
+list.stream().sorted(Comparator.comparing(Student::getAge).reversed())  //Using sorted and reversed
+
+
+//Reverse an array
+
+Reverse integer array :  int[] revarray = IntStream.range(0, orgarray.length).map(i -> orgarray[orgarray.length - 1 - i]).toArray();
+
+//Sorting 
+
+Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+                                                      OR
+		                 mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+						 
+			    desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+
+Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+                                                      OR
+                        mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue())..forEachOrdered(entry ->mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+						
+                desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+						
+

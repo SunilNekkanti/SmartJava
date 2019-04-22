@@ -87,8 +87,20 @@ public class PlayGround {
 
         String s2 = "how";
 
+        ArrayList<String> li = new ArrayList<>();
 
-        System.out.println(str1.indexOf(s2));
+        li.add("zabra");
+        li.add("sbion");
+        li.add("gcrse");
+        li.add("mdoku");
+
+        Comparator<String> mycmp = Comparator.comparing( s -> new Character(s.charAt(1)), Comparator.reverseOrder());
+        List<String> fg = li.stream().sorted(mycmp).collect(Collectors.toList());
+
+       // li.sort(secsort);
+        System.out.println(li);
+
+
 
     }
 }

@@ -30,6 +30,7 @@ public class SteakHouses {
         }
 
         Comparator<List<Integer>> revOrder = (e1, e2) -> e2.get(2).compareTo(e1.get(2));
+        //Comparator<List<Integer>> naturalOrder = Comparator.comparing(List::indexOf(2));
         Collections.sort(locDist, revOrder);
 
         nearestLocs = locDist.stream().

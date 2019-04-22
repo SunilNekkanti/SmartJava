@@ -1,3 +1,11 @@
+
+Collections.size()
+list.size()
+String str, str.length()
+int[] integerarray.length //length is a final variable applicable for arrays. With the help of length variable, we can obtain the size of the array.
+
+
+
 // Conversions
 
 Integer[] to int[]  : Arrays.stream(integerobjectarray).mapToInt(Integer::intValue).toArray();
@@ -81,7 +89,65 @@ Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().strea
                 desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 						
 
-//Customized sorting with comparator
+COMPARATOR STYLES
+//Old style
+public class EmployeeComparator implements Comparator<Employee> {
+  @Override
+  public int compare(Employee emp1, Employee emp2) {
+    return (emp1.getName().compareTo(emp2.getName()));
+  }
+}
+    Collections.sort(employeeList, new EmployeeComparator());
+    employeeList.forEach(System.out::println);
+
+//New style
+//Using Lambdas
+    Comparator<Employee> empNameComparator = (Employee emp1, Employee emp2) -> {return (emp1.getName().compareTo(emp2.getName()));};
+    Collections.sort(employeeList, empNameComparator);
+    employeeList.forEach(System.out::println);
+
+//Using static method comparing() or method reference
+     Comparator<Employee> comparatorObj=Comparator.comparing(Employee emp -> emp.getName());
+     Collections.sort(employeeList, comparatorObj);
+     employeeList.forEach(System.out::println);
+	  OR
+      Comparator<Employee> comparatorObj=Comparator.comparing(Employee::getName);
+      Collections.sort(employeeList, comparatorObj);
+      employeeList.forEach(System.out::println);
+
+// Multiple sort order, The second level sort order gets used if the first level sort criteria is indecisive.
+      Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName).thenComparing(Employee::getAge);
+      Collections.sort(employeeList, empNameComparator);
+      employeeList.forEach(System.out::println);
+
+
+
+SORTING
+
+Sorting an ArrayList
+//Ascending
+Collections.sort(myarrayList); //with Collections class
+OR
+myarrayList.sort(Comparator.naturalOrder()); //with Comparator natural order
+OR
+list.sort((o1, o2) -> o1.getItem().getValue().compareTo(o2.getItem().getValue()));   //Using Lambda
+OR
+list.sort(Comparator.comparing(o -> o.getItem().getValue()));
+OR
+list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());   //Using stream.sorted returns a new list
+
+//Descending
+Comparator mycomparator = Collections.reverseOrder();
+Collections.sort(myarrayList,mycomparator); //with Comparator reverse order
+OR
+myarrayList.sort(Comparator.reverseOrder());
+OR
+Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName).reversed();
+Collections.sort(employeeList, empNameComparator);
+OR
+li.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());   //Using stream.sorted returns a new list
+OR
+list.stream().sorted(Comparator.comparing(Student::getAge).reversed())  //Using sorted and reversed
 
 
 //
@@ -151,7 +217,7 @@ String trim()          // create a new String removing white spaces from front a
 String replace(char oldChar, char newChar)  // create a new String with oldChar replaced by newChar
 String concat(String another)               // same as thisString + another
 char[] toCharArray()                        // create a char[] from this string
-void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)  // copy into dst char[]
+void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)  // \ into dst char[]
  
 // Static methods for converting primitives to String
 static String ValueOf(type arg)  // type can be primitives or char[]
