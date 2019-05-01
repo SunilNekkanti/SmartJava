@@ -165,6 +165,18 @@ putAll(Map M): It is used to copy all of the elements from one map into another.
 Object remove(Object key): It is used to remove the values for any particular key in the Map.
 Collection values(): It is used to return a Collection view of the values in the HashMap.
 
+public V computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction): If the specified key is not already associated with a value (or is mapped to null), this method attempts to compute its value using the given mapping function and enters it into the HashMap unless Null.
+public V computeIfPresent(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction): If the value for the specified key is present and non-null, attempts to compute a new mapping given the key and its current mapped value.
+public V compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction): This HashMap method attempts to compute a mapping for the specified key and its current mapped value.
+public void forEach(BiConsumer<? super K, ? super V> action): This method performs the given action for each entry in this map.
+public V getOrDefault(Object key, V defaultValue): Same as get except that defaultValue is returned if no mapping found for the specified key.
+public V merge(K key, V value, BiFunction<? super V, ? super V, ? extends V> remappingFunction): If the specified key is not already associated with a value or is associated with null, associates it with the given non-null value. Otherwise, replaces the associated value with the results of the given remapping function, or removes if the result is null.
+public V putIfAbsent(K key, V value): If the specified key is not already associated with a value (or is mapped to null) associates it with the given value and returns null, else returns the current value.
+public boolean remove(Object key, Object value): Removes the entry for the specified key only if it is currently mapped to the specified value.
+public boolean replace(K key, V oldValue, V newValue): Replaces the entry for the specified key only if currently mapped to the specified value.
+public V replace(K key, V value): Replaces the entry for the specified key only if it is currently mapped to some value.
+public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function): Replaces each entry’s value with the result of invoking the given function on that entry.
+
 TreeMap in Java
 Constructors in TreeMap:
 TreeMap() : Constructs an empty tree map that will be sorted by using the natural order of its keys.
