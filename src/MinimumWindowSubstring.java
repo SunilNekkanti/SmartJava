@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MinimumWindowSubstring {
@@ -9,52 +8,74 @@ public class MinimumWindowSubstring {
 
         char[] actualChars = actual.toCharArray();
 
+        List<String> results = new ArrayList<>();
+
         int windowSize = sub.length();
 
-//       for (int i=0; i<actual.length();i++){
-//
-//           if(i+windowSize <= actual.length())
-//           System.out.println(actual.substring(i, i+windowSize));
-//
-//
-//       }
+       for (int i=0; i<actual.length();i++){
+           int minWindow = i+windowSize;
 
-        System.out.println(checkStripHasChars(actual.substring(0,3), sub));
+           while(minWindow <= actual.length()) {
+               String strip = actual.substring(i, minWindow);
+
+               if(checkStripHasSomeChars(strip, sub)){
+
+                   if(checkStripHasAllChars(strip, sub)){
+                       results.add(strip);
+                       break;
+                   }
+                   else {
+                    //expand window
+                       minWindow++;
+                       continue;
+                   }
+               }
+               else{
+                   //move to next window
+                   break;
+               }
+           }
 
 
-        return "";
+       }
+        results.sort(Comparator.comparing(String::length));
+
+
+
+        return results.get(0);
     }
 
-    static boolean checkStripHasChars(String strip, String charset){
-//        Set<Character> cc = charset.chars()
-//                .mapToObj(ch -> Character.valueOf((char) ch))
-//                .collect(Collectors.toSet());
-//
-//        Set<Character> stripChars = strip.chars()
-//                .mapToObj(ch -> Character.valueOf((char) ch))
-//                .collect(Collectors.toSet());
-//
-//        stripChars.retainAll(cc);
-//
-//        if(stripChars.size()>0)
-//            return true;
-//        else
-//            return false;
+    static boolean checkStripHasSomeChars(String strip, String charset){
 
         char[] charsetArray = charset.toCharArray();
         char[] stripArray = strip.toCharArray();
 
-        Object[] ff = strip.chars().filter( x -> charset.chars().anyMatch(y-> y== x) ).toArray(c -> new char[]);
+        char[] rs = strip.chars().filter( x -> charset.chars().anyMatch(y-> y==x) )
+                                 .mapToObj(c -> new Character((char) c))
+                                 .map(String::valueOf)
+                                 .collect(Collectors.joining())
+                                 .toCharArray();
 
-
-        System.out.println(Arrays.toString(ff));
-
-
-
-
-        return false;
+        if(rs.length > 0)
+            return true;
+        else
+            return false;
 
     }
+
+    static boolean checkStripHasAllChars(String strip, String charset){
+        Set<Character> neededChars = charset.chars()
+                .mapToObj(ch -> Character.valueOf((char) ch))
+                .collect(Collectors.toSet());
+
+        Set<Character> actualChars = strip.chars()
+                .mapToObj(ch -> Character.valueOf((char) ch))
+                .collect(Collectors.toSet());
+
+        return actualChars.containsAll(neededChars);
+
+    }
+
 
 
     public static void main(String[] args) {
@@ -63,8 +84,7 @@ public class MinimumWindowSubstring {
 
         String sub = "abc";
 
-
-        minimumWindowSubstring(actual,sub);
+        System.out.println(minimumWindowSubstring(actual,sub));
 
     }
 }
