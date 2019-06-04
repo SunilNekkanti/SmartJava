@@ -2,9 +2,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class DFSTraversal {
+public class DFS2DArray {
     public static void main(String[] args){
-        DFSTraversal dfsTraversal = new DFSTraversal();
+        DFS2DArray dfsTraversal = new DFS2DArray();
         PriorityQueue pq = new PriorityQueue();
         List<List<Integer>> list = new ArrayList<>();
         int [] row1 = {1,1,9,1};
@@ -17,10 +17,10 @@ public class DFSTraversal {
         list.add(Arrays.stream(row3).boxed().collect(Collectors.toList()));
         list.add(Arrays.stream(row4).boxed().collect(Collectors.toList()));
         list.add(Arrays.stream(row5).boxed().collect(Collectors.toList()));
-        int distance = dfsTraversal.removeObstacle(5, 4, list);
+        int distance = dfsTraversal.traverse(5, 4, list);
         System.out.println(distance);
     }
-     int removeObstacle(int numRows, int numColumns, List<List<Integer>> lot){
+     int traverse(int numRows, int numColumns, List<List<Integer>> lot){
         Stack<Coordinate> stack = new Stack<Coordinate>();
         boolean [][] visited = new boolean[numRows][numColumns];
          Stream.of(visited).map(Arrays::toString).forEach(System.out::println);

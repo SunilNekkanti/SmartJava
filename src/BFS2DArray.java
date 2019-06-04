@@ -2,9 +2,9 @@ import java.util.*;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
 
-public class BFSTraversal {
+public class BFS2DArray {
     public static void main(String[] args){
-        BFSTraversal BFSTraversal = new BFSTraversal();
+        BFS2DArray BFSTraversal = new BFS2DArray();
         List<List<Integer>> list = new ArrayList<>();
         int [] row1 = {1,1,1,1};
         int [] row2 = {0,1,1,1};
@@ -16,10 +16,10 @@ public class BFSTraversal {
         list.add(Arrays.stream(row3).boxed().collect(Collectors.toList()));
         list.add(Arrays.stream(row4).boxed().collect(Collectors.toList()));
         list.add(Arrays.stream(row5).boxed().collect(Collectors.toList()));
-        int distance = BFSTraversal.removeObstacle(5, 4, list);
+        int distance = BFSTraversal.traverse(5, 4, list);
         System.out.println(distance);
     }
-    int removeObstacle(int numRows, int numColumns, List<List<Integer>> lot){
+    int traverse(int numRows, int numColumns, List<List<Integer>> lot){
         Queue<Coordinate> queue = new LinkedList<>();
         boolean [][] visited = new boolean[numRows][numColumns];
         Coordinate coordinate = new Coordinate(0,0, 0);
