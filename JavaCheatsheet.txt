@@ -64,6 +64,10 @@ String to Integer : Integer.parseInt(strvalue)  OR Integer.valueOf(strvalue)
 
 Integer to int    : integerobject.intValue()
 
+String to char: Character.toString(ch)
+
+char to String: String.valueOf(ch)
+
 
 //Check if a String is numeric
 
@@ -171,6 +175,7 @@ Binary search              : Arrays.binarySearch(array, key) Searches for the sp
 															 
 Copy an Array              : 															 
 
+Print 2D array : Arrays.deepToString(names) or   Stream.of(array2d).map(Arrays::toString).forEach(System.out::println);
 
 // Explore TreeMap, TreeSet
 
