@@ -50,9 +50,9 @@ char[] to Character[]   : new String(chararray) ->and then-> mystring.chars().ma
 
 
 //Data type conversions
-char to int : char ch = Character.forDigit(primitiveintvariable, 10); // 10 is the RADIX
+int to char or Store digit as char: char ch = Character.forDigit(primitiveintvariable, 10); // 10 is the RADIX
 
-int to char : int i = Character.digit(charvariable, 10); // 10 is the RADIX
+char to int or Parse char as digit : int i = Character.digit(charvariable, 10); // 10 is the RADIX
 
 char to ascii : int ascii = (int) character;
 
@@ -80,17 +80,30 @@ Reverse integer array :  int[] revarray = IntStream.range(0, orgarray.length).ma
 
 //Sorting 
 
-Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stream()
+.sorted(Map.Entry.comparingByKey())
+.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
                                                       OR
-		                 mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+		                 mysortedlinkedhashmap = existinghashmap.entrySet().stream()
+		                 .sorted(Map.Entry.comparingByKey()).
+		                 forEachOrdered(entry ->
+		                 mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 						 
-			    desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+			    desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream()
+			    .sorted(Map.Entry.comparingByKey().reversed())
+			    .forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 
-Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream()
+.sorted(Map.Entry.comparingByValue())
+.collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
                                                       OR
-                        mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue())..forEachOrdered(entry ->mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+                        mysortedlinkedhashmap = existinghashmap.entrySet().stream()
+                        .sorted(Map.Entry.comparingByValue()).
+                        forEachOrdered(entry ->mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 						
-                desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+                desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue().reversed())
+                .forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 						
 
 COMPARATOR STYLES
@@ -106,7 +119,8 @@ public class EmployeeComparator implements Comparator<Employee> {
 
 //New style
 //Using Lambdas
-    Comparator<Employee> empNameComparator = (Employee emp1, Employee emp2) -> {return (emp1.getName().compareTo(emp2.getName()));};
+    Comparator<Employee> empNameComparator = (Employee emp1, Employee emp2)
+     -> {return (emp1.getName().compareTo(emp2.getName()));};
     Collections.sort(employeeList, empNameComparator);
     employeeList.forEach(System.out::println);
 
@@ -120,7 +134,8 @@ public class EmployeeComparator implements Comparator<Employee> {
       employeeList.forEach(System.out::println);
 
 // Multiple sort order, The second level sort order gets used if the first level sort criteria is indecisive.
-      Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName).thenComparing(Employee::getAge);
+      Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName)
+      .thenComparing(Employee::getAge);
       Collections.sort(employeeList, empNameComparator);
       employeeList.forEach(System.out::println);
 
@@ -138,10 +153,11 @@ list.sort((o1, o2) -> o1.getItem().getValue().compareTo(o2.getItem().getValue())
 OR
 list.sort(Comparator.comparing(o -> o.getItem().getValue()));
 OR
-list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());   //Using stream.sorted returns a new list
+list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
+  //Using stream.sorted returns a new list
 
 //Descending
-Comparator mycomparator = Collections.reverseOrder();
+Comparator mycomparator = Comparator.reverseOrder();
 Collections.sort(myarrayList,mycomparator); //with Comparator reverse order
 OR
 myarrayList.sort(Comparator.reverseOrder());
@@ -168,14 +184,16 @@ Sort an Array              :
 
 Fill array with some value : Arrays.fill(myarray, value)  OR Arrays.fill(myarray, from, to, value)
 
-Binary search              : Arrays.binarySearch(array, key) Searches for the specified key value in an array. The return
-                                                             value is the index of the element that matches the key. The method
-                                                             returns -1 if the key can’t be found. The array and the key must be
-															 of the same type and can be any primitive type or an object.
-															 
+Binary search              : Arrays.binarySearch(array, key)
+Searches for the specified key value in an array. The return
+value is the index of the element that matches the key. The method
+returns -1 if the key can’t be found. The array and the key must be
+of the same type and can be any primitive type or an object.
+
 Copy an Array              : 															 
 
-Print 2D array : Arrays.deepToString(names) or   Stream.of(array2d).map(Arrays::toString).forEach(System.out::println);
+Print 2D array : Arrays.deepToString(names) or
+ Stream.of(array2d).map(Arrays::toString).forEach(System.out::println);
 
 // Explore TreeMap, TreeSet
 
