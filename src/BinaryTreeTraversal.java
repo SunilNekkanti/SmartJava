@@ -93,10 +93,6 @@ public class BinaryTreeTraversal {
  private void printTreePreOrder(Node rootNode){
   if(rootNode!=null) {
    System.out.print(rootNode.getData() + " ");
-   if(rootNode.getLeft()!=null) {
-    System.out.println();
-    System.out.println("recur stack " + rootNode.getLeft().getData() + " ");
-   }
    printTreePreOrder(rootNode.getLeft());
    printTreePreOrder(rootNode.getRight());
   }

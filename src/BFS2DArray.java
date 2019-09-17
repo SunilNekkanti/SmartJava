@@ -29,40 +29,40 @@ public class BFS2DArray {
             Coordinate current = queue.peek();
             queue.remove();
             int row = current.row;
-            int coloumn = current.coloumn;
+            int column = current.column;
             int distance = current.distance;
-            if(lot.get(row).get(coloumn)==0){
+            if(lot.get(row).get(column)==0){
                 continue;
             }
-            if(lot.get(row).get(coloumn)!=1){
+            if(lot.get(row).get(column)!=1){
                 return distance;
             }
-            if(row+1<numRows && !visited[row+1][coloumn]){
-                queue.add(new Coordinate(row+1, coloumn, distance+1));
-                visited[row+1][coloumn] = true;
+            if(row+1<numRows && !visited[row+1][column]){
+                queue.add(new Coordinate(row+1, column, distance+1));
+                visited[row+1][column] = true;
             }
-            if(row-1>=0 && !visited[row-1][coloumn]){
-                queue.add(new Coordinate(row-1, coloumn, distance+1));
-                visited[row-1][coloumn] = true;
+            if(row-1>=0 && !visited[row-1][column]){
+                queue.add(new Coordinate(row-1, column, distance+1));
+                visited[row-1][column] = true;
             }
-            if(coloumn+1<numColumns && !visited[row][coloumn+1]){
-                queue.add(new Coordinate(row, coloumn+1, distance+1));
-                visited[row][coloumn+1] = true;
+            if(column+1<numColumns && !visited[row][column+1]){
+                queue.add(new Coordinate(row, column+1, distance+1));
+                visited[row][column+1] = true;
             }
-            if(coloumn-1>=0 && !visited[row][coloumn-1]){
-                queue.add(new Coordinate(row, coloumn-1, distance+1));
-                visited[row][coloumn-1] = true;
+            if(column-1>=0 && !visited[row][column-1]){
+                queue.add(new Coordinate(row, column-1, distance+1));
+                visited[row][column-1] = true;
             }
         }
         return -1;
     }
     public class Coordinate{
         public int row;
-        public int coloumn;
+        public int column;
         public int distance;
-        public Coordinate(int row, int coloumn, int distance){
+        public Coordinate(int row, int column, int distance){
             this.row = row;
-            this.coloumn = coloumn;
+            this.column = column;
             this.distance = distance;
         }
 

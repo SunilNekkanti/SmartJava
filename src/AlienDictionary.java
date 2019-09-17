@@ -29,7 +29,7 @@ class AlienDictionary {
     }
 
     // c. Find all sources i.e., all vertices with 0 in-degrees
-    Queue<Character> sources = new LinkedList<>();
+    Queue<Character> sources = new java.util.LinkedList<>();
     for (Map.Entry<Character, Integer> entry : inDegree.entrySet()) {
       if (entry.getValue() == 0)
         sources.add(entry.getKey());

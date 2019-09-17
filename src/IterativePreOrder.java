@@ -14,6 +14,9 @@ class TreeNode
 		data = key;
 		left = right = null;
 	}
+	public String toString(){
+		return String.valueOf(data);
+	}
 };
 
 // Simple pair class to store the path of a particular key in 

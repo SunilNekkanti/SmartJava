@@ -1,3 +1,7 @@
+
+import java.util.*;
+import java.util.LinkedList;
+
 class binarySearchTree {
 
 	class Node{
@@ -80,15 +84,46 @@ class binarySearchTree {
 	}
 
 	//Just for Testing purpose 
-	public void printTree(Node current) 
+	public List<Integer> Inorder(Node root)
   {
-		if (current == null) return;
+	  List<Integer> list = new ArrayList<>();
+	  if(root == null)
+	  	return list;
+	  Stack<Node> stack = new Stack<>();
+	  while(root != null || !stack.empty()){
+		  while(root != null){
+			  stack.push(root);
+			  root = root.getLeftChild();
+		  }
+		  root = stack.pop();
+		  list.add(root.getData());
+		  root = root.getRightChild();
 
-		System.out.print(current.getData() + ",");
-		printTree(current.getLeftChild());
-		printTree(current.getRightChild());
+	  }
+	  return list;
+  }
 
+	public List<List<Integer>> levelOrder(Node root) {
+		Queue<Node> queue =  new LinkedList<Node>();
+		List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
+
+		if(root == null) return wrapList;
+
+		queue.offer(root);
+		while(!queue.isEmpty()){
+			int levelNum = queue.size();
+			List<Integer> subList = new LinkedList<Integer>();
+			for(int i=0; i<levelNum; i++) {
+				if(queue.peek().leftChild != null) queue.offer(queue.peek().leftChild);
+				if(queue.peek().rightChild != null) queue.offer(queue.peek().rightChild);
+				subList.add(queue.poll().getData());
+			}
+			wrapList.add(subList);
+		}
+		return wrapList;
 	}
+
+
 
 	public static void main(String args[]) 
   {
@@ -103,8 +138,8 @@ class binarySearchTree {
 		bsT.add(12);
 		bsT.add(10);
 		bsT.add(14);
-    
-		bsT.printTree(bsT.getRoot());
+
+	  System.out.println(bsT.Inorder(bsT.getRoot()));
 	}
 }
 

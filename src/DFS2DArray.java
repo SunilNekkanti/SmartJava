@@ -7,7 +7,7 @@ public class DFS2DArray {
         DFS2DArray dfsTraversal = new DFS2DArray();
         PriorityQueue pq = new PriorityQueue();
         List<List<Integer>> list = new ArrayList<>();
-        int [] row1 = {1,1,9,1};
+        int [] row1 = {1,1,0,1};
         int [] row2 = {0,1,0,0};
         int [] row3 = {0,1,0,1};
         int [] row4 = {0,1,9,1};
@@ -21,6 +21,7 @@ public class DFS2DArray {
         System.out.println(distance);
     }
      int traverse(int numRows, int numColumns, List<List<Integer>> lot){
+        String.valueOf('v');
         Stack<Coordinate> stack = new Stack<Coordinate>();
         boolean [][] visited = new boolean[numRows][numColumns];
          Stream.of(visited).map(Arrays::toString).forEach(System.out::println);

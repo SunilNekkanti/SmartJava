@@ -24,7 +24,9 @@ public class LongestSubStringAlt {
             }
             charSet.add(rightPositionChar);
             maxLength = Math.max(maxLength, rightPosition-leftPosition+1);
+            System.out.println(mystr.substring(leftPosition,rightPosition+1));
         }
+
         return maxLength;
 
     }

@@ -50,15 +50,15 @@ char[] to Character[]   : new String(chararray) ->and then-> mystring.chars().ma
 
 
 //Data type conversions
-int to char or Store digit as char: char ch = Character.forDigit(primitiveintvariable, 10); // 10 is the RADIX
+char to int : char ch = Character.forDigit(primitiveintvariable, 10); // 10 is the RADIX
 
-char to int or Parse char as digit : int i = Character.digit(charvariable, 10); // 10 is the RADIX
+int to char : int i = Character.digit(charvariable, 10); // 10 is the RADIX
 
 char to ascii : int ascii = (int) character;
 
 ascii to char : char c = (char) asciiintegervariable;
 
-Integer to String : Integer.toString(intvalue)  OR String.valueOf(intvalue) 
+Integer to String : Integer.toString(intvalue)  OR String.valueOf(intvalue)
 
 String to Integer : Integer.parseInt(strvalue)  OR Integer.valueOf(strvalue)
 
@@ -73,38 +73,64 @@ char to String: String.valueOf(ch)
 
 mystring.matches("-?\\d+(\\.\\d+)?")    # this returns true or false based on string is numeric or not
 
+mystring.chars().allMatch(Character::isDigit) # # this returns true or false based on string is numeric or not...checks only positive values
+
+//Check if Character is letter or digit, takes in chars and returns true of false
+        Character.isDigit('1')
+        Character.isLetter('f')
+        Character.isLetterOrDigit('o')
+        Character.isWhitespace(' ')
+        Character.isAlphabetic('l')
+
+
+//String tricks
+
+    Remove all punctuation from string : mystring.replaceAll("[^a-zA-Z0-9\\s]", "")
+
+    Split a string by space            : mystring.split("\\s")   OR match any number of spaces by mystring.split("\\s+") # this returns an array
+
+    Array to String                    : Arrays.toString(myarray)
+
+    Reverse a String                    : new StringBuilder(mystring).reverse().toString()
+
+
+//Combinations of a String
+    permutations("sunil").parallel().collect(Collectors.toSet()).stream().sorted().forEach(System.out::println);
+
+	public static Stream<String> permutations(String str) {
+    if (str.isEmpty()) {
+        return Stream.of("");
+    }
+    return IntStream.range(0, str.length()).boxed()
+            .flatMap(i -> permutations(str.substring(0, i) + str.substring(i + 1)).map(t -> str.charAt(i) + t));
+    }
+
+
 
 //Reverse an array
 
 Reverse integer array :  int[] revarray = IntStream.range(0, orgarray.length).map(i -> orgarray[orgarray.length - 1 - i]).toArray();
 
-//Sorting 
+//Sorting
 
-Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stream()
-.sorted(Map.Entry.comparingByKey())
-.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
                                                       OR
-		                 mysortedlinkedhashmap = existinghashmap.entrySet().stream()
-		                 .sorted(Map.Entry.comparingByKey()).
-		                 forEachOrdered(entry ->
-		                 mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
-						 
-			    desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream()
-			    .sorted(Map.Entry.comparingByKey().reversed())
-			    .forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+		                 mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 
-Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream()
-.sorted(Map.Entry.comparingByValue())
-.collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+			    desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+
+Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
                                                       OR
-                        mysortedlinkedhashmap = existinghashmap.entrySet().stream()
-                        .sorted(Map.Entry.comparingByValue()).
-                        forEachOrdered(entry ->mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
-						
-                desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue().reversed())
-                .forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
-						
+                        mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue())..forEachOrdered(entry ->mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+
+                desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+
+Stream 2d array:
+       Double[][] doubled2D = Arrays.stream(array2D)
+                                    .map(y -> Arrays.stream(y)
+                                                    .map(x -> 2*x)
+                                                    .toArray(Double[]::new))
+                                    .toArray(Double[][]::new);
 
 COMPARATOR STYLES
 //Old style
@@ -119,8 +145,7 @@ public class EmployeeComparator implements Comparator<Employee> {
 
 //New style
 //Using Lambdas
-    Comparator<Employee> empNameComparator = (Employee emp1, Employee emp2)
-     -> {return (emp1.getName().compareTo(emp2.getName()));};
+    Comparator<Employee> empNameComparator = (Employee emp1, Employee emp2) -> {return (emp1.getName().compareTo(emp2.getName()));};
     Collections.sort(employeeList, empNameComparator);
     employeeList.forEach(System.out::println);
 
@@ -134,8 +159,7 @@ public class EmployeeComparator implements Comparator<Employee> {
       employeeList.forEach(System.out::println);
 
 // Multiple sort order, The second level sort order gets used if the first level sort criteria is indecisive.
-      Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName)
-      .thenComparing(Employee::getAge);
+      Comparator<Employee> empNameComparator = Comparator.comparing(Employee::getName).thenComparing(Employee::getAge);
       Collections.sort(employeeList, empNameComparator);
       employeeList.forEach(System.out::println);
 
@@ -153,11 +177,10 @@ list.sort((o1, o2) -> o1.getItem().getValue().compareTo(o2.getItem().getValue())
 OR
 list.sort(Comparator.comparing(o -> o.getItem().getValue()));
 OR
-list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
-  //Using stream.sorted returns a new list
+list.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());   //Using stream.sorted returns a new list
 
 //Descending
-Comparator mycomparator = Comparator.reverseOrder();
+Comparator mycomparator = Collections.reverseOrder();
 Collections.sort(myarrayList,mycomparator); //with Comparator reverse order
 OR
 myarrayList.sort(Comparator.reverseOrder());
@@ -180,20 +203,45 @@ list.stream().sorted(Comparator.comparing(Student::getAge).reversed())  //Using 
 
 // Arrays tricks
 
-Sort an Array              :
 
-Fill array with some value : Arrays.fill(myarray, value)  OR Arrays.fill(myarray, from, to, value)
+// Arrays tricks
 
-Binary search              : Arrays.binarySearch(array, key)
-Searches for the specified key value in an array. The return
-value is the index of the element that matches the key. The method
-returns -1 if the key can’t be found. The array and the key must be
-of the same type and can be any primitive type or an object.
+    Array to String            : Arrays.toString(myarray)
 
-Copy an Array              : 															 
+	2D Array to String         : Arrays.deepToString(2darray)
 
-Print 2D array : Arrays.deepToString(names) or
- Stream.of(array2d).map(Arrays::toString).forEach(System.out::println);
+	Print 2D Array matrix      : Stream.of(2darray).map(Arrays::toString).forEach(System.out::println);
+
+	Print 2D array             : Arrays.deepToString(names)
+
+	Join a String Array        : String.join("delimiter", stringarray);
+
+    Sort an Array              : Arrays.sort(myarray)
+
+    Fill array with some value : Arrays.fill(myarray, value)  OR Arrays.fill(myarray, from, to, value)
+
+    Binary search              : Arrays.binarySearch(array, key) Searches for the specified key value in an array. The return
+                                                                 value is the index of the element that matches the key. The method
+                                                                 returns -1 if the key can’t be found. The array and the key must be
+    															 of the same type and can be any primitive type or an object.
+
+    Deep Copy a 1D Array       : Arrays.copyOf(myarray, myarray.length) OR Arrays.copyOfRange(int[] original_array, int from_index, int to_index)
+
+                                #  Arrays.copyOf(..) is a 'cheap' deep copy for both primitive and 1-D Object arrays. But any data array more complex and it is found out. Maybe it should be called a semi-deep copy.
+
+    Deep Copy a 2D array       :      static <T> T[][] deepCopy(T[][] matrix) {
+                                      return java.util.Arrays.stream(matrix).map(el -> el.clone()).toArray($ -> matrix.clone());
+                                      }
+                                             OR
+
+                                      int arr[][]=new int[originalarray.length][originalarray[0].length];
+                                      for(int a=0;a<originalarray.length;a++){
+                                      for(int b=0;b<originalarray[0].length;b++)
+                                      { arr[a][b]=originalarray[a][b];} }
+
+
+
+
 
 // Explore TreeMap, TreeSet
 
@@ -255,3 +303,140 @@ String replaceAll(String regexe, String replacement)
 String[] split(String regexe)             // Split the String using regexe as delimiter,
                                           // return a String array
 String[] split(String regexe, int count)  // for count times only
+
+Java 8 - Map merge() method
+
+The signature of the java.util.Map.merge(key, value, BiFunction) method is as follows:
+
+default V merge(K key,
+                V value,
+                BiFunction<? super V,? super V,? extends V> remappingFunction)
+
+Parameters
+K key: the key with which to associate the result
+V value: non-null value to merge with existing value or to be used as the new value if there is no current mapping or the mapping is null
+BiFunction remappingFunction: a two argument function to be used for calculation of the new mapping from the old value and given value. If the function returns null the mapping is removed.
+
+Example 1:
+        List<String> team1 = new ArrayList<>();
+        List<String> currentValue = new ArrayList<>();
+        team1.addAll(Arrays.asList("sunil","mike","pudingi"));
+        currentValue.addAll(Arrays.asList("pudingi"));
+        Map<String,List<String>> map = new HashMap<>();
+        map.put("team1", team1);
+        map.merge("team1", currentValue, (existingValue, newValue)-> { existingValue.removeAll(newValue); return existingValue;});
+        System.out.println(map);
+		Output:
+		    {team1=[sunil, mike]}
+Example 2:
+        Map<String, Integer> prices = new HashMap<>();
+        System.out.println("Prices map: " + prices);
+
+        // Integer::sum(a,b) is perfect two-argument
+        // function (BiFunction)
+        prices.merge("fruits", 3, Integer::sum);
+        prices.merge("fruits", 5, Integer::sum);
+        System.out.println("Prices map: " + prices);
+
+        // null removes mapping for the key:
+        prices.merge("fruits", 7, (existingValue, newValue) -> {return null;});
+        System.out.println("Prices map: " + prices);
+
+        prices.put("veggies", null);
+        System.out.println("Prices map: " + prices);
+        // No need to handle initial null value:
+        prices.merge("veggies", 42, Integer::sum);
+        System.out.println("Prices map: " + prices);
+		Output:
+			Prices map: {}
+			Prices map: {fruits=8}
+			Prices map: {}
+			Prices map: {veggies=null}
+			Prices map: {veggies=42}
+
+Java 8 Streams - Collectors.toMap Examples
+
+The static overloaded methods, Collectors.toMap() return a Collector which produces a new instance of Map, populated with keys per provided keyMapper function and values per provided valueMap function.
+
+<T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(
+                                  Function<? super T,? extends K> keyMapper,
+                                  Function<? super T,? extends U> valueMapper,
+                                  BinaryOperator<U> mergeFunction,
+                                  Supplier<M> mapSupplier)
+
+Parameters
+Function keyMapper: A mapping function to produce the map keys for each input stream element.
+
+Function valueMapper: A mapping function to produce the map values for each input stream element.
+
+BinaryOperator mergeFunction: This is optional. The usability of merge function is to handle the situation of duplicate Map keys. Using BinaryOperator we can merge the values of duplicate keys. If we do not pass this argument, then by default it throws IllegalStateException in case of duplicate keys. This takes in a lambda with two input parameters existingValue and newValue and returns some computedValue.
+
+Supplier mapSupplier: This is optional. It returns a Map in which data is filled as key/value. If we do not pass map supplier then the default supplier will return HashMap. If we want to get any other instance such as LinkedHashMap, we need to pass supplier as LinkedHashMap::new.
+
+Example:
+
+        Stream<String> s = Stream.of("apple", "banana", "apricot", "orange",
+                            "apple");
+        LinkedHashMap<Character, String> m = s.collect(
+                            Collectors.toMap(s1 -> s1.charAt(0),
+                                                s1 -> s1,
+                                                (existingValue, newValue) -> existingValue + "|" + newValue,
+                                                LinkedHashMap::new));
+		Output:
+			{a=apple|apricot|apple, b=banana, o=orange}
+
+
+
+Java 8 Streams - Collectors.groupingBy Examples
+
+<T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(
+                                Function<? super T,? extends K> classifier,
+                                Supplier<M> mapFactory,
+                                Collector<? super T,A,D> downstream)
+
+Parameters
+classifier: This function returned value is used as map key. Inputs to this function are stream elements.
+
+downstream: This collector transforms the map values to type D.
+
+mapFactory: This function creates the desired Map implementation.
+
+Example 1:
+        Student s1 = new Student("Ram", "A", 20);
+        Student s2 = new Student("Shyam", "B", 22);
+        Student s3 = new Student("Mohan", "A", 22);
+        Student s4 = new Student("Mahesh", "C", 20);
+        Student s5 = new Student("Krishna", "B", 21);
+        List<Student> list = Arrays.asList(s1,s2,s3,s4,s5);
+        //Group Student on the basis of ClassName
+        System.out.println("----Group Student on the basis of ClassName----");
+        Map<String, List<Student>> stdByClass = list.stream()
+                    .collect(Collectors.groupingBy(Student::getClassName));
+        Output:
+		----Group Student on the basis of ClassName----
+		Key:A  Ram,Mohan
+		Key:B  Shyam,Krishna
+		Key:C  Mahesh
+
+Example 2:
+        Stream<String> s = Stream.of("apple", "banana", "orange");
+
+groupingBy(classifier)
+        Map<Integer, List<String>> map = s.collect(
+                            Collectors.groupingBy(String::length));
+		output:
+		{5=[apple], 6=[banana, orange]}
+groupingBy(classifier, downstream)
+        Map<Integer, Long> map = s.collect(
+                            Collectors.groupingBy(String::length, Collectors.counting()));
+		output:
+		{5=1, 6=2}
+
+groupingBy(classifier, mapFactory, downstream)
+        ConcurrentHashMap<Integer, Long> map = s.collect(
+                            Collectors.groupingBy(String::length,
+                                                ConcurrentHashMap::new,
+                                                Collectors.counting()));
+			output:
+			{5=1, 6=2}
+

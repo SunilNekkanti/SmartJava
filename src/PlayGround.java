@@ -80,25 +80,36 @@ public class PlayGround {
 //        int[] f = getIndicesOfItemWeights(new int[]{3,2,5,4,5,6}, 8);
 //
 //        System.out.println(Arrays.toString(f));
-
-
-        String str1 = "hello how are you ra";
-
-
-        String s2 = "how";
-
-        ArrayList<String> li = new ArrayList<>();
-
-        li.add("zabra");
-        li.add("sbion");
-        li.add("gcrse");
-        li.add("mdoku");
-
-        Comparator<String> mycmp = Comparator.comparing( s -> new Character(s.charAt(1)), Comparator.reverseOrder());
-        List<String> fg = li.stream().sorted(mycmp).collect(Collectors.toList());
-
-       // li.sort(secsort);
+ArrayList<Integer> li = new ArrayList<Integer>();
+li.add(1);
+li.add(2);
+li.add(4);
+        li.removeIf(i->i%2==0);
         System.out.println(li);
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        hm.put(2,1);
+        hm.put(2,2);
+        hm.put(2,3);
+        System.out.println(hm);
+//
+//        String str1 = "hello   'how,! are 465''you ..ra";
+//
+//        System.out.println(str1.replaceAll("[^a-zA-Z0-9\\s]",""));
+//
+////        String s2 = "how";
+//
+//        ArrayList<String> li = new ArrayList<>();
+//
+//        li.add("zabra");
+//        li.add("sbion");
+//        li.add("gcrse");
+//        li.add("mdoku");
+//
+//        Comparator<String> mycmp = Comparator.comparing( s -> new Character(s.charAt(1)), Comparator.reverseOrder());
+//        List<String> fg = li.stream().sorted(mycmp).collect(Collectors.toList());
+//
+//       // li.sort(secsort);
+//        System.out.println(li);
 
 
 

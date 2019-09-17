@@ -22,7 +22,7 @@ class AllTaskSchedulingOrders {
     }
 
     // c. Find all sources i.e., all vertices with 0 in-degrees
-    Queue<Integer> sources = new LinkedList<>();
+    Queue<Integer> sources = new java.util.LinkedList<>();
     for (Map.Entry<Integer, Integer> entry : inDegree.entrySet()) {
       if (entry.getValue() == 0)
         sources.add(entry.getKey());
@@ -65,7 +65,7 @@ class AllTaskSchedulingOrders {
 
   // makes a deep copy of the queue
   private static Queue<Integer> cloneQueue(Queue<Integer> queue) {
-    Queue<Integer> clone = new LinkedList<>();
+    Queue<Integer> clone = new java.util.LinkedList<>();
     for (Integer num : queue)
       clone.add(num);
     return clone;

@@ -1,8 +1,4 @@
-import java.awt.*;
 import java.util.*;
-import java.util.List;
-import java.util.stream.Stream;
-
 import javafx.util.Pair;
 
 public class MyDFS2DArray {
@@ -63,22 +59,6 @@ public class MyDFS2DArray {
         }
     }
 
-    private static List<Pair<Integer, Integer>> getValidNeighbours(int row, int column, int totalRows, int totalColumns, int[][] maze) {
-
-
-        List<Pair<Integer, Integer>> neighbours = new ArrayList<>();
-
-        if (row - 1 >= 0 && row - 1 < totalRows && maze[row - 1][column] != 0) //up
-            neighbours.add(new Pair(row - 1, column));
-        if (column - 1 >= 0 && column - 1 < totalColumns && maze[row][column - 1] != 0) // left
-            neighbours.add(new Pair(row, column - 1));
-        if (column + 1 >= 0 && column + 1 < totalColumns && maze[row][column + 1] != 0) // right
-            neighbours.add(new Pair(row, column + 1));
-        if (row + 1 >= 0 && row + 1 < totalRows && maze[row + 1][column] != 0) // down
-            neighbours.add(new Pair(row + 1, column));
-
-        return neighbours;
-    }
 
     private static Pair<Integer, Integer> getValidUnexploredNeighbour(int row, int column, int totalRows, int totalColumns, int[][] maze, Set<Pair<Integer, Integer>> visitedNodes) {
 

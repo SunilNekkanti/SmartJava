@@ -43,7 +43,9 @@ public class LRUCache {
         lru.put(4,7);
         lru.put(1,9);
         lru.put(2,19);
-
+        lru.get(3);
+        lru.get(1);
+        lru.get(2);
         System.out.println(lru.map);
 
 
