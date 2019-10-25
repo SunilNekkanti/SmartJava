@@ -74,6 +74,9 @@ public class ValidateBinarySearchTree {
                 root = root.left;
             }
             currentNode = stack.pop();
+
+            System.out.println("currentNode: "+currentNode);
+            System.out.println("previousNode: "+previous);
             if(previous!=null && currentNode.data < previous.data)
                 return false;
             previous = currentNode;
@@ -130,7 +133,7 @@ public class ValidateBinarySearchTree {
 //        System.out.println(isValidBSTRecursirve(tn5));
 
         List<Integer> list = new ArrayList<Integer>();
-        System.out.println(levelOrder(tn5));
+        System.out.println(isValidBST(tn5));
 
 
 
