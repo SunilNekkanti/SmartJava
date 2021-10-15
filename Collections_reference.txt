@@ -531,3 +531,67 @@ Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().strea
                 desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 						
 
+Finding Key associated with max Value in a Java Map
+
+Java 8 way to get all keys with max value.
+
+Integer max = PROVIDED_MAP.entrySet()
+            .stream()
+            .max((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1)
+            .get()
+            .getValue();
+
+List listOfMax = PROVIDED_MAP.entrySet()
+            .stream()
+            .filter(entry -> entry.getValue() == max)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toList());
+
+System.out.println(listOfMax);
+
+
+1. Using Stream
+
+public <K, V extends Comparable<V>> V maxUsingStreamAndLambda(Map<K, V> map) {
+    Optional<Entry<K, V>> maxEntry = map.entrySet()
+        .stream()
+        .max((Entry<K, V> e1, Entry<K, V> e2) -> e1.getValue().compareTo(e2.getValue())
+        );
+
+    return maxEntry.get().getKey();
+}
+2. Using Collections.max() with a Lambda Expression
+
+    public <K, V extends Comparable<V>> V maxUsingCollectionsMaxAndLambda(Map<K, V> map) {
+        Entry<K, V> maxEntry = Collections.max(map.entrySet(), (Entry<K, V> e1, Entry<K, V> e2) -> e1.getValue().compareTo(e2.getValue()));
+        return maxEntry.getKey();
+    }
+3. Using Stream with Method Reference
+
+    public <K, V extends Comparable<V>> V maxUsingStreamAndMethodReference(Map<K, V> map) {
+        Optional<Entry<K, V>> maxEntry = map.entrySet().stream().max(Comparator.comparing(Map.Entry::getValue));
+        return maxEntry.get().getKey();
+    }
+4. Using Collections.max()
+
+    public <K, V extends Comparable<V>> V maxUsingCollectionsMax(Map<K, V> map) {
+        Entry<K, V> maxEntry = Collections.max(map.entrySet(), new Comparator<Entry<K, V>>() {
+            public int compare(Entry<K, V> e1, Entry<K, V> e2) {
+                return e1.getValue()
+                    .compareTo(e2.getValue());
+            }
+        });
+        return maxEntry.getKey();
+    }
+5. Using Simple Iteration
+
+public <K, V extends Comparable<V>> V maxUsingIteration(Map<K, V> map) {
+    Map.Entry<K, V> maxEntry = null;
+    for (Map.Entry<K, V> entry : map.entrySet()) {
+        if (maxEntry == null || entry.getValue()
+            .compareTo(maxEntry.getValue()) > 0) {
+            maxEntry = entry;
+        }
+    }
+    return maxEntry.getKey();
+}

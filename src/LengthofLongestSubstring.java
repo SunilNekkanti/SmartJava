@@ -1,9 +1,5 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class LengthofLongestSubstring {
 
@@ -29,12 +25,8 @@ public class LengthofLongestSubstring {
 
         LengthofLongestSubstring lls = new LengthofLongestSubstring();
 
-        lls.lengthOfLongestSubstring("sunil");
+        lls.lengthOfLongestSubstring("sunnnnil");
 
-        if (lls.hashCode() == 223) {
-
-
-        }
 
 
 

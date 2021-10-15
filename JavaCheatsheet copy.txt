@@ -113,17 +113,29 @@ Reverse integer array :  int[] revarray = IntStream.range(0, orgarray.length).ma
 
 //Sorting
 
-Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stream().
+                                                  sorted(Map.Entry.comparingByKey()).
+                                                  collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
                                                       OR
-		                 mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+		                 mysortedlinkedhashmap = existinghashmap.entrySet().stream().
+		                                         sorted(Map.Entry.comparingByKey()).
+		                                         forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 
-			    desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByKey().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+			    desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().
+			                                    sorted(Map.Entry.comparingByKey().reversed()).
+			                                    forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 
-Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream().
+                                                sorted(Map.Entry.comparingByValue()).
+                                                collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
                                                       OR
-                        mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue())..forEachOrdered(entry ->mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+                        mysortedlinkedhashmap = existinghashmap.entrySet().stream().
+                                                sorted(Map.Entry.comparingByValue()).
+                                                forEachOrdered(entry ->mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 
-                desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().sorted(Map.Entry.comparingByValue().reversed()).forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
+                desc  : mysortedlinkedhashmap = existinghashmap.entrySet().stream().
+                                                sorted(Map.Entry.comparingByValue().reversed()).
+                                                forEachOrdered(entry -> mysortedlinkedhashmap.put(entry.getKey(), entry.getValue()));
 
 Stream 2d array:
        Double[][] doubled2D = Arrays.stream(array2D)
