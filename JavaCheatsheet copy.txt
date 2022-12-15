@@ -61,10 +61,11 @@ ascii to char : char c = (char) asciiintegervariable;
 Integer to String : Integer.toString(intvalue)  OR String.valueOf(intvalue)
 
 String to Integer : Integer.parseInt(strvalue)  OR Integer.valueOf(strvalue)
-
+hav
 Integer to int    : integerobject.intValue()
 
-String to char: Character.toString(ch)
+String to char: Character.toString(ch) or String.valueOf(ch);
+//for single letter str.charAt(0)
 
 char to String: String.valueOf(ch)
 
@@ -107,9 +108,12 @@ mystring.chars().allMatch(Character::isDigit) # # this returns true or false bas
 
 
 
+
 //Reverse an array
 
-Reverse integer array :  int[] revarray = IntStream.range(0, orgarray.length).map(i -> orgarray[orgarray.length - 1 - i]).toArray();
+Reverse integer array :  int[] revarray = IntStream.range(0, orgarray.length)
+                                                   .map(i -> orgarray[orgarray.length - 1 - i])
+                                                   .toArray();
 
 //Sorting
 
@@ -127,7 +131,9 @@ Map sort by keys asc  :  mysortedlinkedhashmap = existinghashmap.entrySet().stre
 
 Map sort by values asc: mysortedlinkedhashmap = existinghashmap.entrySet().stream().
                                                 sorted(Map.Entry.comparingByValue()).
-                                                collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue, newValue) -> oldValue,LinkedHashMap::new));
+                                                collect(Collectors.toMap(Map.Entry::getKey,
+                                                                         Map.Entry::getValue,
+                                                                         (oldValue, newValue) -> oldValue,LinkedHashMap::new));
                                                       OR
                         mysortedlinkedhashmap = existinghashmap.entrySet().stream().
                                                 sorted(Map.Entry.comparingByValue()).
@@ -451,4 +457,147 @@ groupingBy(classifier, mapFactory, downstream)
                                                 Collectors.counting()));
 			output:
 			{5=1, 6=2}
+
+//Inline declarations
+int[] myIntArray = new int[3];
+int[] myIntArray = {1, 2, 3};
+int[] myIntArray = new int[]{1, 2, 3};
+
+// Since Java 8. Doc of IntStream: https://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html
+
+int [] myIntArray = IntStream.range(0, 100).toArray(); // From 0 to 99
+int [] myIntArray = IntStream.rangeClosed(0, 100).toArray(); // From 0 to 100
+int [] myIntArray = IntStream.of(12,25,36,85,28,96,47).toArray(); // The order is preserved.
+int [] myIntArray = IntStream.of(12,25,36,85,28,96,47).sorted().toArray(); // Sort
+
+String[] myStringArray = new String[3];
+String[] myStringArray = {"a", "b", "c"};
+String[] myStringArray = new String[]{"a", "b", "c"};
+
+
+List<Integer> ScoreList = Arrays.asList(95,85,93,91);
+ArrayList<Integer> x = new ArrayList<Integer>(Arrays.asList(1,2));
+ArrayList<Long> longList = new ArrayList<Long>(Arrays.asList(1L, 2L, 3L));
+List<Double> list = new ArrayList<>(Arrays.asList(1.38, 2.56, 4.3));
+
+List<String> list = Arrays.asList(new String[]{"foo", "bar"});
+List<String> list = Stream.of("foo", "bar").collect(Collectors.toList());
+List<String> cities = new ArrayList() {{
+        add("New York");
+        add("Rio");
+        add("Tokyo");
+    }};
+
+Set<String> countries = new HashSet<String>() {
+        {
+           add("India");
+           add("USSR");
+           add("USA");
+        }
+    };
+
+Character[] JavaCharArray = {'r', 's', 't', 'u', 'v'};
+char[] JavaCharArray = {'r', 's', 't', 'u', 'v'};
+
+//Java 9
+List<String> list = List.of("foo", "bar", "baz");
+Set<String> set = Set.of("foo", "bar", "baz");
+
+
+double  --> Double.parseDouble(String);
+float   --> Float.parseFloat(String);
+long    --> Long.parseLong(String);
+int     --> Integer.parseInt(String);
+char    --> stringGoesHere.charAt(int position);
+short   --> Short.parseShort(String);
+byte    --> Byte.parseByte(String);
+boolean --> Boolean.parseBoolean(String);
+
+//Long to Integer
+Long l = 123L;
+Integer correctButComplicated = Integer.valueOf(l.intValue());
+Integer withBoxing = l.intValue();
+Integer terrible = (int) (long) l;
+
+String value = "975";
+Integer ival = Integer.valueOf(value);
+System.out.println(value + " (byte) " + ival.byteValue());
+System.out.println(value + " (int ) " + ival.intValue());
+System.out.println(value + " (shrt) " + ival.shortValue());
+System.out.println(value + " (long) " + ival.longValue());
+System.out.println(value + " (flt ) " + ival.floatValue());
+System.out.println(value + " (dbl ) " + ival.doubleValue());
+
+
+BigDecimal number = new BigDecimal("2.3423424666767E13");
+
+int myInt = number.intValue();
+double myDouble = number.doubleValue();
+
+// your purpose
+float myFloat = number.floatValue();
+
+
+//int to Double
+        int num = 99;
+
+1.  Double result = new Double(num);
+2.  Double result = Double.valueOf(num);
+3.  double result = num;
+
+//Converting int to float:
+        int i = 125;
+        float f = i;
+   Integer i = 85;
+   float f = i.floatValue();
+
+Convert int to long
+Long.valueOf(your_integer);
+Integer y = 1;
+long x = y.longValue();
+
+//long to int
+ long a = 230;
+ Math.toIntExact(a);
+
+	byte b=10;
+
+	short s= b;	//byte value is widened to short
+	int i=b;	//byte value is widened to int
+	long l=b;	//byte value is widened to long
+	float f=b;	//byte value is widened to float
+	double d=b;	//byte value is widened to double
+
+
+
+
+	double d =10.5;
+
+	byte b = (byte)d;		//Narrowing double to byte
+	short s= (short)d;		//Narrowing double to short
+	int i= (int)d;			//Narrowing double to int
+	long l= (long)d;		//Narrowing double to long
+	float f= (float)d;		//Narrowing double to float
+
+Double d = 0.5;
+float f = d.floatValue();
+
+public static Float convertToFloat(Double doubleValue) {
+    return doubleValue == null ? null : doubleValue.floatValue();
+}
+
+double d = 0.5;
+Double D = Double.valueOf(d);
+float f = D.floatValue();
+
+public static Float convertToFloat(double doubleValue) {
+    return (float) doubleValue;
+}
+
+
+
+If either operand is of type double, the other is converted to double.
+Otherwise, if either operand is of type float, the other is converted to float.
+Otherwise, if either operand is of type long, the other is converted to long.
+Otherwise, both operands are converted to type int.
 
